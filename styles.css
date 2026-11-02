@@ -56,6 +56,7 @@
 #app {
     position: relative;
     height: 100vh;
+    height: 100dvh;
     display: grid;
     grid-template-columns: 104px minmax(0, 1fr);
     overflow: hidden;
@@ -349,6 +350,7 @@ main {
     gap: clamp(24px, 4vw, 72px);
     align-items: center;
     min-height: min(calc(100vh - 200px), 780px);
+    min-height: min(calc(100dvh - 200px), 780px);
 }
 
 .hero-name {
@@ -908,8 +910,8 @@ main {
         line-height: 1;
         color: var(--ink);
     }
-    #app[data-nav] .nav-list > li:first-child .nav-link[aria-current="page"] > span { left: 6px; transform: none; }
-    #app[data-nav] .nav-list > li:last-child .nav-link[aria-current="page"] > span { left: auto; right: 6px; transform: none; }
+    /* o ultimo nome (Publicacoes) e largo: centralizado com folga de 6px para nao encostar na borda da tela */
+    #app[data-nav] .nav-list > li:last-child .nav-link[aria-current="page"] > span { transform: translateX(calc(-50% - 6px)); }
     #app[data-nav] .nav-link[aria-current="page"] > span > span { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
 }
 
@@ -1020,6 +1022,7 @@ main {
     flex-direction: column;
     width: min(920px, 100%);
     height: min(92vh, 1100px);
+    height: min(92dvh, 1100px);
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: 16px;
