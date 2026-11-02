@@ -1,0 +1,784 @@
+<div id="app" lang="{{ langCode }}" data-theme="{{ themeName }}" data-nav="{{ navMode }}" data-app-id="{{ appId }}" data-projects="{{ projectsLayout }}">
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-profile" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></symbol>
+    <symbol id="i-programming" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"></path></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"></circle><path d="m8.6 14 -1.6 7.2 5 -3 5 3 -1.6 -7.2"></path><path d="m12 6.2 .9 1.9 2 .3 -1.45 1.4 .35 2 -1.8 -.95 -1.8 .95 .35 -2 -1.45 -1.4 2 -.3z" fill="currentColor" stroke="none"></path></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></symbol>
+    <symbol id="i-publications" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"></path></symbol>
+    <symbol id="i-professional" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></symbol>
+    <symbol id="i-projects" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"></path></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"></path></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></symbol>
+    <symbol id="i-loomis" viewBox="0 0 566 548"><path fill="currentColor" fill-opacity=".7" d="M98.3,532.75 Q107.05,541 117,541 L420,541 A300.1,300.1 0 0 1 208.5,386 L202,373 Z"></path><path fill="currentColor" fill-opacity=".55" d="M 208.5,386 L545,386 Q557,386 551,396 L448,531 Q441,541 425,541 L420,541 A300.1,300.1 0 0 1 208.5,386 Z"></path><path fill="currentColor" d="M202.7,117 L27.609,332.784 Q11.227,352.974 22.025,376.626 L82,508 Q89.55,524.5 98.3,532.75 L202,373 A300.1,300.1 0 0 1 202.7,117 Z"></path><path fill="currentColor" fill-opacity=".85" d="M292.075,23.500 L293,228 Q293,250 281,266 L202,373 A300.1,300.1 0 0 1 202.7,117 L281.600,19.810 Q292.000,7.000 292.075,23.500 Z"></path></symbol>
+    <symbol id="i-company" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"></rect><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"></path></symbol>
+    <symbol id="i-skills" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity=".16" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"></path></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><rect fill="currentColor" fill-opacity=".16" x="2.5" y="4" width="19" height="16" rx="3"></rect><path d="M7 9.5l3 2.5-3 2.5M13 15h4"></path></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect fill="currentColor" fill-opacity=".16" x="3" y="3" width="18" height="18" rx="3"></rect><path d="M3 9h18M9 21V9"></path></symbol>
+    <symbol id="i-cicd" viewBox="0 0 24 24"><circle fill="currentColor" fill-opacity=".16" cx="18" cy="18" r="3"></circle><circle fill="currentColor" fill-opacity=".16" cx="6" cy="6" r="3"></circle><path d="M6 9v3a6 6 0 0 0 6 6h3"></path></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><rect fill="currentColor" fill-opacity=".16" x="4" y="4" width="16" height="16" rx="3"></rect><rect x="9" y="9" width="6" height="6" rx="1"></rect><path d="M9 1.5V4M15 1.5V4M9 20v2.5M15 20v2.5M1.5 9H4M1.5 15H4M20 9h2.5M20 15h2.5"></path></symbol>
+    <symbol id="i-forest" viewBox="0 0 24 24"><circle fill="currentColor" fill-opacity=".16" cx="6" cy="6" r="3"></circle><circle fill="currentColor" fill-opacity=".16" cx="18" cy="6" r="3"></circle><circle fill="currentColor" fill-opacity=".16" cx="12" cy="19" r="3"></circle><path d="M6 9v1.5a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V9M12 13.5V16"></path></symbol>
+    <symbol id="i-series" viewBox="0 0 24 24"><rect fill="currentColor" fill-opacity=".16" x="4.5" y="13" width="3.5" height="7" rx="1"></rect><rect fill="currentColor" fill-opacity=".16" x="10.25" y="9" width="3.5" height="11" rx="1"></rect><rect fill="currentColor" fill-opacity=".16" x="16" y="4" width="3.5" height="16" rx="1"></rect></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path><circle fill="currentColor" fill-opacity=".16" cx="9" cy="6" r="2.5"></circle><circle fill="currentColor" fill-opacity=".16" cx="15" cy="12" r="2.5"></circle><circle fill="currentColor" fill-opacity=".16" cx="7" cy="18" r="2.5"></circle></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle fill="currentColor" fill-opacity=".16" cx="12" cy="12" r="9.5"></circle><circle cx="12" cy="12" r="5.5"></circle><circle fill="currentColor" cx="12" cy="12" r="1.6"></circle></symbol>
+    <symbol id="i-spec" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity=".16" d="M14 2.5H7a2.5 2.5 0 0 0-2.5 2.5v14A2.5 2.5 0 0 0 7 21.5h10a2.5 2.5 0 0 0 2.5-2.5V8z"></path><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h4"></path></symbol>
+    <symbol id="i-cloudformation" viewBox="0 0 80 80"><defs><linearGradient id="cfgrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#B0084D"></stop><stop offset="100%" stop-color="#FF4F8B"></stop></linearGradient></defs><rect width="80" height="80" rx="10" fill="url(#cfgrad)" stroke="none"></rect><path fill="#fff" stroke="none" d="M53,39.9632039 L58,39.9632039 L58,37.9601375 L53,37.9601375 L53,39.9632039 Z M28,51.9816019 L33,51.9816019 L33,49.9785356 L28,49.9785356 L28,51.9816019 Z M18,51.9816019 L25,51.9816019 L25,49.9785356 L18,49.9785356 L18,51.9816019 Z M18,45.9724029 L30,45.9724029 L30,43.9693366 L18,43.9693366 L18,45.9724029 Z M18,33.9540048 L27,33.9540048 L27,31.9509385 L18,31.9509385 L18,33.9540048 Z M18,39.9632039 L51,39.9632039 L51,37.9601375 L18,37.9601375 L18,39.9632039 Z M37,61.9969337 L14,61.9969337 L14,27.9448058 L37,27.9448058 L37,35.9570712 L39,35.9570712 L39,26.9432726 C39,26.3904263 38.552,25.9417395 38,25.9417395 L13,25.9417395 C12.447,25.9417395 12,26.3904263 12,26.9432726 L12,62.9984668 C12,63.5513131 12.447,64 13,64 L38,64 C38.552,64 39,63.5513131 39,62.9984668 L39,42.9678034 L37,42.9678034 L37,61.9969337 Z M68,36.9586044 C68,43.4305117 62.173,45.6819583 59.092,45.9683968 L43,45.9724029 L43,43.9693366 L59,43.9693366 C59.195,43.9463013 66,43.2121775 66,36.9586044 C66,31.2638867 60.863,30.1081175 59.834,29.9338507 C59.321,29.8467173 58.96,29.3820059 59.004,28.8632117 C59.005,28.8441826 59.007,28.826155 59.009,28.8081274 C58.954,25.5902013 56.981,24.584662 56.126,24.3002266 C54.53,23.769414 52.751,24.2771913 51.81,25.5391231 C51.591,25.8355769 51.229,25.9868085 50.861,25.9307226 C50.497,25.8756383 50.192,25.625255 50.068,25.2767214 C49.447,23.5360568 48.546,22.4083304 47.293,21.1534094 C44.159,18.0386412 39.905,17.1783242 35.925,18.8528877 C33.837,19.7332353 32.012,21.7282894 30.922,24.327268 L29.078,23.5500782 C30.37,20.4743699 32.584,18.0887179 35.15,17.007062 C39.905,15.0049972 44.971,16.0255595 48.704,19.7342369 C49.774,20.8068789 50.66,21.851478 51.35,23.2035478 C52.843,22.0978551 54.857,21.7673492 56.757,22.3993166 C59.189,23.2085554 60.727,25.3207889 60.975,28.1290879 C64.381,28.9884034 68,31.7115721 68,36.9586044 L68,36.9586044 Z"></path></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity=".16" d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></symbol>
+    <symbol id="i-cloudstack" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity=".16" d="M6.5 18.5a4.5 4.5 0 0 1-.4-8.98 6 6 0 0 1 11.5 1.48 3.75 3.75 0 0 1-.35 7.5z"></path></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity=".16" d="M12 2.5l9 4.5-9 4.5L3 7z"></path><path d="M3 12l9 4.5 9-4.5M3 17l9 4.5 9-4.5"></path></symbol>
+    <symbol id="i-vercel" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity=".16" d="M12 3.5 22 20.5H2z"></path></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse fill="currentColor" fill-opacity=".16" cx="12" cy="5.5" rx="8" ry="3"></ellipse><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 4h12v5a6 6 0 0 1-12 0V4z"></path><path d="M6 6H3v1a4 4 0 0 0 3 3.8M18 6h3v1a4 4 0 0 1-3 3.8M12 15v4M8 21h8M9 19h6"></path></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3z"></path></symbol>
+    <symbol id="i-calendar-check" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M3 10h18M8 2v4M16 2v4M9 15.5l2 2 4-4"></path></symbol>
+    <symbol id="i-robot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4M9 13v1.5M15 13v1.5M2 14v2M22 14v2"></path><circle cx="12" cy="3" r="1"></circle></symbol>
+    <symbol id="i-journey" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></symbol>
+    <symbol id="i-gmail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></symbol>
+    <symbol id="i-curriculum" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"></path></symbol>
+  </svg>
+
+  <nav class="nav" aria-label="{{ t.navLabel }}">
+    <a class="brand" href="#profile" onClick="{{ goProfile }}" aria-label="Loomis">
+      <img class="brand-logo logo-light" src="{{ loomisLogo }}" alt="Loomis">
+      <img class="brand-logo logo-dark" src="{{ loomisLogoDark }}" alt="Loomis">
+    </a>
+    <ul class="nav-list">
+      <sc-for list="{{ sections }}" as="item" hint-placeholder-count="5">
+        <li>
+          <a class="nav-link" href="#{{ item.ref }}" title="{{ item.label }}" aria-label="{{ item.label }}" aria-current="{{ item.current }}" onClick="{{ item.go }}">
+            <svg class="ico" aria-hidden="true"><use href="#i-{{ item.ref }}"></use></svg>
+            <span>{{ item.label }}</span>
+          </a>
+        </li>
+      </sc-for>
+    </ul>
+    <div class="nav-tools">
+      <button class="lang-toggle" onClick="{{ toggleLanguage }}" aria-label="{{ t.langAria }}">
+        <span class="{{ ptCls }}">PT</span>
+        <span class="{{ enCls }}">EN</span>
+      </button>
+      <button class="tool-btn" onClick="{{ toggleTheme }}" aria-label="{{ t.themeAria }}">
+        <svg class="ico" aria-hidden="true"><use href="#i-{{ themeIcon }}"></use></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main onScroll="{{ onScroll }}">
+    <section id="profile" class="section">
+      <div class="wrap">
+        <div class="hero">
+          <div class="hero-copy">
+            <h1 class="hero-name"><span>Willian</span><span>Pacheco</span><span>Silva</span></h1>
+            <p class="hero-role">{{ t.role }}</p>
+            <p class="hero-lead">{{ t.lead }}</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects" onClick="{{ goProjects }}">
+                <span>{{ t.ctaProjects }}</span>
+                <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+              <a class="btn btn-ghost" href="{{ cvLink }}" target="_blank" onClick="{{ openCv }}">
+                <svg class="ico" aria-hidden="true"><use href="#i-download"></use></svg>
+                <span>{{ t.cv }}</span>
+              </a>
+            </div>
+            <ul class="social">
+              <sc-for list="{{ socials }}" as="media" hint-placeholder-count="4">
+                <li>
+                  <a class="icon-btn" href="{{ media.link }}" target="_blank" aria-label="{{ media.name }}" title="{{ media.name }}" onClick="{{ media.onClick }}">
+                    <svg class="ico" aria-hidden="true"><use href="#i-{{ media.key }}"></use></svg>
+                  </a>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+          <div class="hero-art">
+            <div class="art-dots" aria-hidden="true"></div>
+            <div class="art-solid arch" aria-hidden="true"></div>
+            <div class="art-outline arch" aria-hidden="true"></div>
+            <div class="portrait arch">
+              <img src="{{ retrato }}" alt="{{ t.photoAlt }}">
+            </div>
+            <div class="art-badge {{ badgeCls }}" onMouseEnter="{{ holdBadge }}" onMouseLeave="{{ releaseBadge }}">
+              <div class="badge-mark">
+                <svg class="ico" aria-hidden="true"><use href="#i-{{ t.badgeIcon }}"></use></svg>
+              </div>
+              <div>
+                <p class="badge-title">{{ t.badgeTitle }}</p>
+                <p class="badge-text">{{ t.badgeText }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about">
+          <div class="about-text">
+            <h2 class="about-title">{{ t.aboutTitle }}</h2>
+            <sc-for list="{{ bio }}" as="paragraph" hint-placeholder-count="3">
+              <p class="{{ paragraph.cls }}">{{ paragraph.text }}</p>
+            </sc-for>
+          </div>
+          <div class="now">
+            <h2 class="about-title">{{ t.focusTitle }}</h2>
+            <ul class="chips">
+              <sc-for list="{{ focus }}" as="area" hint-placeholder-count="6">
+                <li>{{ area.text }}</li>
+              </sc-for>
+            </ul>
+            <h2 class="about-title now-gap">{{ t.languagesTitle }}</h2>
+            <ul class="dot-list">
+              <sc-for list="{{ spoken }}" as="spokenLanguage" hint-placeholder-count="3">
+                <li>{{ spokenLanguage.text }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey" class="section">
+      <div class="wrap">
+        <header class="journey-head">
+          <h2 class="section-title">{{ t.journeyTitle }}</h2>
+          <p class="lede">{{ t.chartHint }}</p>
+        </header>
+        <div class="gx" role="group" aria-label="{{ t.timelineAria }}">
+          <div class="gx-axis" aria-hidden="true">
+            <span class="gx-axis-pad"></span>
+            <span class="gx-axis-lane">
+              <sc-for list="{{ timelineYears }}" as="tick" hint-placeholder-count="7">
+                <span class="gx-year {{ tick.cls }}" style="left: {{ tick.left }}">{{ tick.label }}</span>
+              </sc-for>
+              <sc-if value="{{ showToday }}" hint-placeholder-val="{{ true }}">
+                <span class="gx-now" style="left: {{ todayLeft }}">{{ t.today }}</span>
+              </sc-if>
+            </span>
+          </div>
+          <div class="gx-body" style="--gx-grid: {{ gxGrid }}; --p: {{ todayP }}">
+            <sc-if value="{{ showToday }}" hint-placeholder-val="{{ true }}">
+              <span class="gx-today" aria-hidden="true"></span>
+            </sc-if>
+            <sc-for list="{{ journeyGroups }}" as="group" hint-placeholder-count="2">
+              <div class="gx-group">
+                <h3 class="gx-group-title">{{ group.name }}</h3>
+                <ul class="gx-rows">
+                  <sc-for list="{{ group.rows }}" as="row" hint-placeholder-count="5">
+                    <li class="gx-row {{ row.cls }}">
+                      <sc-if value="{{ row.clickable }}" hint-placeholder-val="{{ true }}">
+                        <button class="gx-hit" aria-haspopup="{{ row.popup }}" onClick="{{ row.open }}">
+                          <span class="gx-label">
+                            <span class="gx-title">{{ row.title }}<svg class="ico gx-go" aria-hidden="true"><use href="#i-{{ row.icon }}"></use></svg></span>
+                            <span class="gx-sub">{{ row.sub }}</span>
+                          </span>
+                          <span class="gx-lane" aria-hidden="true">
+                            <sc-for list="{{ row.segs }}" as="seg" hint-placeholder-count="1">
+                              <span class="gx-seg {{ seg.cls }}" style="left: {{ seg.left }}; width: {{ seg.width }}; height: {{ seg.height }}" title="{{ seg.title }}"></span>
+                            </sc-for>
+                          </span>
+                        </button>
+                      </sc-if>
+                      <sc-if value="{{ row.plain }}" hint-placeholder-val="{{ false }}">
+                        <div class="gx-hit">
+                          <span class="gx-label">
+                            <span class="gx-title">{{ row.title }}</span>
+                            <span class="gx-sub">{{ row.sub }}</span>
+                          </span>
+                          <span class="gx-lane" aria-hidden="true">
+                            <sc-for list="{{ row.segs }}" as="seg" hint-placeholder-count="1">
+                              <span class="gx-seg {{ seg.cls }}" style="left: {{ seg.left }}; width: {{ seg.width }}; height: {{ seg.height }}"></span>
+                            </sc-for>
+                          </span>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ row.pills }}" hint-placeholder-val="{{ false }}">
+                        <div class="gx-hit">
+                          <span class="gx-label">
+                            <span class="gx-title">{{ row.title }}</span>
+                            <span class="gx-sub">{{ row.sub }}</span>
+                          </span>
+                          <span class="gx-lane">
+                            <sc-for list="{{ row.years }}" as="pill" hint-placeholder-count="4">
+                              <button class="gx-pill" style="left: {{ pill.left }}; width: {{ pill.width }}" aria-haspopup="dialog" aria-label="{{ pill.aria }}" title="{{ pill.aria }}" onClick="{{ pill.open }}"><span class="gx-pill-year">{{ pill.year }} ·</span>{{ pill.count }}</button>
+                            </sc-for>
+                          </span>
+                        </div>
+                      </sc-if>
+                    </li>
+                  </sc-for>
+                </ul>
+              </div>
+            </sc-for>
+          </div>
+          <div class="gx-foot">
+            <button class="tl-awards" aria-haspopup="dialog" onClick="{{ openAwards }}">
+              <svg class="ico" aria-hidden="true"><use href="#i-award"></use></svg>
+              <span>{{ awardsLabel }}</span>
+              <span class="tech-count">{{ awardsCount }}</span>
+            </button>
+            <p class="tl-note">{{ noteBefore }}<a href="#publications" onClick="{{ goPublications }}">{{ noteLink }}</a>{{ noteAfter }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="company" class="section">
+      <div class="wrap split">
+        <header class="section-head">
+          <h2 class="section-title">{{ t.nav.company }}</h2>
+          <p class="lede">{{ company.informationText }}</p>
+        </header>
+        <div class="company">
+          <article class="company-card">
+            <div class="company-main">
+              <div class="company-brand">
+                <img class="loomis-logo logo-light" src="{{ loomisLogo }}" alt="Loomis">
+                <img class="loomis-logo logo-dark" src="{{ loomisLogoDark }}" alt="Loomis">
+              </div>
+              <p class="company-tagline">{{ company.tagline }}</p>
+              <a class="btn btn-brand" href="{{ company.mailto }}">
+                <span>{{ company.cta }}</span>
+                <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+            </div>
+            <dl class="company-facts">
+              <sc-for list="{{ company.facts }}" as="fact" hint-placeholder-count="3">
+                <div>
+                  <dt>{{ fact.label }}</dt>
+                  <dd>{{ fact.value }}</dd>
+                </div>
+              </sc-for>
+            </dl>
+          </article>
+          <ul class="pillars">
+            <sc-for list="{{ company.pillars }}" as="pillar" hint-placeholder-count="4">
+              <li>
+                <span class="ai-mark"><svg class="ico" aria-hidden="true"><use href="#i-{{ pillar.icon }}"></use></svg></span>
+                <h3>{{ pillar.title }}</h3>
+                <p>{{ pillar.text }}</p>
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="programming" class="section">
+      <div class="wrap split">
+        <header class="section-head">
+          <h2 class="section-title">{{ t.nav.programming }}</h2>
+          <p class="lede">{{ programming.informationText }}</p>
+          <div class="vtabs" role="tablist" aria-orientation="vertical" aria-label="{{ t.progTabsLabel }}">
+            <sc-for list="{{ progTabs }}" as="tab" hint-placeholder-count="3">
+              <button class="vtab" role="tab" id="{{ tab.tabId }}" aria-selected="{{ tab.selected }}" aria-controls="{{ tab.panelId }}" tabindex="{{ tab.tabIndex }}" onClick="{{ tab.select }}" onKeyDown="{{ tab.keys }}">
+                <span>{{ tab.label }}</span>
+                <span class="vtab-count">{{ tab.count }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </header>
+        <div class="stack">
+          <div class="tab-panel" role="tabpanel" id="tabpanel-prog-ia-{{ appId }}" aria-labelledby="tab-prog-ia-{{ appId }}" data-active="{{ progOn.ia }}">
+          <div class="stack-group featured">
+            <div class="featured-head">
+              <h3 class="group-title">{{ ai.name }}</h3>
+            </div>
+            <ul class="tech-grid ai-tools">
+              <sc-for list="{{ ai.tools }}" as="tool" hint-placeholder-count="3">
+                <li class="tech">
+                  <sc-if value="{{ tool.plain }}" hint-placeholder-val="{{ true }}">
+                    <img class="{{ tool.cls }}" src="{{ tool.src }}" alt="">
+                    <span>{{ tool.text }}</span>
+                  </sc-if>
+                  <sc-if value="{{ tool.expandable }}" hint-placeholder-val="{{ false }}">
+                    <button class="tech-btn" aria-haspopup="dialog" onClick="{{ tool.toggle }}">
+                      <img class="{{ tool.cls }}" src="{{ tool.src }}" alt="">
+                      <span>{{ tool.text }}</span>
+                      <span class="tech-count">{{ tool.count }}</span>
+                    </button>
+                  </sc-if>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+          <div class="stack-group featured">
+            <div class="featured-head">
+              <h3 class="group-title">{{ ml.name }}</h3>
+            </div>
+            <ul class="tech-grid">
+              <sc-for list="{{ ml.items }}" as="mlItem" hint-placeholder-count="10">
+                <li class="tech">
+                  <sc-if value="{{ mlItem.plain }}" hint-placeholder-val="{{ true }}">
+                    <sc-if value="{{ mlItem.hasLogo }}" hint-placeholder-val="{{ true }}">
+                      <img class="{{ mlItem.cls }}" src="{{ mlItem.src }}" alt="">
+                    </sc-if>
+                    <sc-if value="{{ mlItem.noLogo }}" hint-placeholder-val="{{ false }}">
+                      <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ mlItem.icon }}"></use></svg></span>
+                    </sc-if>
+                    <span>{{ mlItem.text }}</span>
+                  </sc-if>
+                  <sc-if value="{{ mlItem.expandable }}" hint-placeholder-val="{{ false }}">
+                    <button class="tech-btn" aria-haspopup="dialog" onClick="{{ mlItem.toggle }}">
+                      <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ mlItem.icon }}"></use></svg></span>
+                      <span>{{ mlItem.text }}</span>
+                      <span class="tech-count">{{ mlItem.count }}</span>
+                    </button>
+                  </sc-if>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="tabpanel-prog-cloud-{{ appId }}" aria-labelledby="tab-prog-cloud-{{ appId }}" data-active="{{ progOn.cloud }}">
+          <div class="stack-group featured">
+            <div class="featured-head">
+              <h3 class="group-title">{{ cloud.name }}</h3>
+            </div>
+            <ul class="tech-grid">
+              <sc-for list="{{ cloud.items }}" as="cloudItem" hint-placeholder-count="6">
+                <li class="tech">
+                  <sc-if value="{{ cloudItem.plain }}" hint-placeholder-val="{{ true }}">
+                    <sc-if value="{{ cloudItem.hasLogo }}" hint-placeholder-val="{{ true }}">
+                      <img class="{{ cloudItem.cls }}" src="{{ cloudItem.src }}" alt="">
+                    </sc-if>
+                    <sc-if value="{{ cloudItem.noLogo }}" hint-placeholder-val="{{ false }}">
+                      <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ cloudItem.icon }}"></use></svg></span>
+                    </sc-if>
+                    <span>{{ cloudItem.text }}</span>
+                  </sc-if>
+                  <sc-if value="{{ cloudItem.expandable }}" hint-placeholder-val="{{ false }}">
+                    <button class="tech-btn" aria-haspopup="dialog" onClick="{{ cloudItem.toggle }}">
+                      <sc-if value="{{ cloudItem.hasLogo }}" hint-placeholder-val="{{ true }}">
+                        <img class="{{ cloudItem.cls }}" src="{{ cloudItem.src }}" alt="">
+                      </sc-if>
+                      <sc-if value="{{ cloudItem.noLogo }}" hint-placeholder-val="{{ false }}">
+                        <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ cloudItem.icon }}"></use></svg></span>
+                      </sc-if>
+                      <span>{{ cloudItem.text }}</span>
+                      <span class="tech-count">{{ cloudItem.count }}</span>
+                    </button>
+                  </sc-if>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="tabpanel-prog-lang-{{ appId }}" aria-labelledby="tab-prog-lang-{{ appId }}" data-active="{{ progOn.lang }}">
+          <sc-for list="{{ groups }}" as="group" hint-placeholder-count="3">
+            <div class="stack-group">
+              <h3 class="group-title">{{ group.name }}</h3>
+              <ul class="tech-grid">
+                <sc-for list="{{ group.items }}" as="tech" hint-placeholder-count="8">
+                  <li class="tech">
+                    <sc-if value="{{ tech.plain }}" hint-placeholder-val="{{ true }}">
+                      <sc-if value="{{ tech.hasLogo }}" hint-placeholder-val="{{ true }}">
+                        <img class="{{ tech.cls }}" src="{{ tech.src }}" alt="">
+                      </sc-if>
+                      <sc-if value="{{ tech.noLogo }}" hint-placeholder-val="{{ false }}">
+                        <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ tech.icon }}"></use></svg></span>
+                      </sc-if>
+                      <span>{{ tech.name }}</span>
+                    </sc-if>
+                    <sc-if value="{{ tech.expandable }}" hint-placeholder-val="{{ false }}">
+                      <button class="tech-btn" aria-haspopup="dialog" onClick="{{ tech.toggle }}">
+                        <img class="{{ tech.cls }}" src="{{ tech.src }}" alt="">
+                        <span>{{ tech.name }}</span>
+                        <span class="tech-count">{{ tech.count }}</span>
+                      </button>
+                    </sc-if>
+                  </li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="wrap split">
+        <header class="section-head">
+          <h2 class="section-title">{{ t.nav.projects }}</h2>
+          <p class="lede">{{ projects.informationText }}</p>
+          <div class="vtabs" role="tablist" aria-orientation="vertical" aria-label="{{ projTabsLabel }}">
+            <sc-for list="{{ projTabs }}" as="tab" hint-placeholder-count="4">
+              <button class="vtab" role="tab" id="{{ tab.tabId }}" aria-selected="{{ tab.selected }}" aria-controls="{{ tab.panelId }}" tabindex="{{ tab.tabIndex }}" onClick="{{ tab.select }}" onKeyDown="{{ tab.keys }}">
+                <span>{{ tab.label }}</span>
+                <span class="vtab-count">{{ tab.count }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </header>
+        <div class="project-grid" role="tabpanel" id="{{ projPanelId }}" aria-labelledby="{{ projTabId }}">
+          <sc-for list="{{ projectItems }}" as="project" hint-placeholder-count="6">
+            <article class="project">
+              <div class="project-body">
+                <h3>{{ project.name }}</h3>
+                <p class="project-date">{{ project.date }}</p>
+                <ul class="project-tech">
+                  <sc-for list="{{ project.tech }}" as="tech" hint-placeholder-count="6">
+                    <li><img class="{{ tech.cls }}" src="{{ tech.src }}" alt="{{ tech.name }}" title="{{ tech.name }}"></li>
+                  </sc-for>
+                </ul>
+                <p>{{ project.description }}</p>
+                <div class="project-links">
+                  <a class="btn btn-ghost" href="{{ project.link }}" target="_blank">
+                    <svg class="ico" aria-hidden="true"><use href="#i-github"></use></svg>
+                    <span>GitHub</span>
+                  </a>
+                  <sc-if value="{{ project.hasDemo }}" hint-placeholder-val="{{ false }}">
+                    <a class="btn btn-ghost" href="{{ project.demo }}" target="_blank">
+                      <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                      <span>{{ t.demo }}</span>
+                    </a>
+                  </sc-if>
+                </div>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="wrap split">
+        <header class="section-head">
+          <h2 class="section-title">{{ t.nav.publications }}</h2>
+          <p class="lede">{{ publications.informationText }}</p>
+          <div class="pub-links">
+            <a class="btn btn-ghost" href="{{ lattesLink }}" target="_blank">
+              <span>Lattes</span>
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+            <a class="btn btn-ghost" href="{{ orcidLink }}" target="_blank">
+              <span>ORCID</span>
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+          </div>
+          <div class="vtabs" role="tablist" aria-orientation="vertical" aria-label="{{ pubTabsLabel }}">
+            <sc-for list="{{ pubTabs }}" as="tab" hint-placeholder-count="3">
+              <button class="vtab" role="tab" id="{{ tab.tabId }}" aria-selected="{{ tab.selected }}" aria-controls="{{ tab.panelId }}" tabindex="{{ tab.tabIndex }}" onClick="{{ tab.select }}" onKeyDown="{{ tab.keys }}">
+                <span>{{ tab.label }}</span>
+                <span class="vtab-count">{{ tab.count }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </header>
+        <ol class="pubs" role="tabpanel" id="{{ pubPanelId }}" aria-labelledby="{{ pubTabId }}">
+          <sc-for list="{{ pubItems }}" as="pub" hint-placeholder-count="5">
+            <li class="pub">
+              <div class="pub-meta">
+                <p class="pub-date">{{ pub.year }}</p>
+              </div>
+              <div class="pub-body">
+                <h3>
+                  <a href="{{ pub.link }}" target="_blank">
+                    <span>{{ pub.title }}</span>
+                    <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                  </a>
+                </h3>
+                <p class="pub-venue">{{ pub.venue }}</p>
+                <ul class="pub-authors">
+                  <sc-for list="{{ pub.authors }}" as="author" hint-placeholder-count="5">
+                    <li class="{{ author.cls }}">{{ author.name }}</li>
+                  </sc-for>
+                </ul>
+                <p class="pub-kind">{{ pub.kind }}</p>
+              </div>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </section>
+
+    <footer class="contact">
+      <h2>{{ t.contactTitle }}</h2>
+      <p>{{ t.contactText }}</p>
+      <div class="contact-actions">
+        <a class="btn btn-accent" href="{{ mailLink }}">
+          <span>{{ t.email }}</span>
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+        </a>
+        <ul class="social">
+          <sc-for list="{{ socialsNoMail }}" as="media" hint-placeholder-count="3">
+            <li>
+              <a class="icon-btn" href="{{ media.link }}" target="_blank" aria-label="{{ media.name }}" title="{{ media.name }}" onClick="{{ media.onClick }}">
+                <svg class="ico" aria-hidden="true"><use href="#i-{{ media.key }}"></use></svg>
+              </a>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </footer>
+  </main>
+    <sc-if value="{{ eduOpen }}" hint-placeholder-val="{{ false }}">
+      <div class="svc-overlay" onClick="{{ closeEdu }}">
+        <div class="svc-dialog" role="dialog" aria-modal="true" aria-label="{{ eduTitle }}" onClick="{{ stopCv }}">
+          <div class="svc-bar">
+            <h2 class="svc-title">{{ eduTitle }}</h2>
+            <button class="icon-btn svc-close" onClick="{{ closeEdu }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="svc-body edu-modal">
+            <sc-for list="{{ eduItems }}" as="item" hint-placeholder-count="2">
+              <article class="edu-card {{ item.cls }}">
+                <sc-if value="{{ item.isAward }}" hint-placeholder-val="{{ false }}">
+                  <span class="award-ico"><svg class="ico" aria-hidden="true"><use href="#i-{{ item.icon }}"></use></svg></span>
+                </sc-if>
+                <sc-if value="{{ item.showName }}" hint-placeholder-val="{{ true }}">
+                  <h3>{{ item.name }}</h3>
+                </sc-if>
+                <sc-if value="{{ item.hasInstitution }}" hint-placeholder-val="{{ true }}">
+                  <p class="edu-meta">{{ item.institution }} · {{ item.date }}</p>
+                </sc-if>
+                <sc-if value="{{ item.hasDescription }}" hint-placeholder-val="{{ true }}">
+                  <p>{{ item.description }}</p>
+                </sc-if>
+                <sc-if value="{{ item.hasLinks }}" hint-placeholder-val="{{ false }}">
+                  <div class="cert-list">
+                    <sc-for list="{{ item.links }}" as="link" hint-placeholder-count="1">
+                      <a href="{{ link.href }}" target="_blank">
+                        <span>{{ link.name }}</span>
+                        <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                      </a>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ item.hasProof }}" hint-placeholder-val="{{ false }}">
+                  <p class="proof-note">{{ school.titles.proofNote }}</p>
+                </sc-if>
+                <sc-if value="{{ item.hasSubjects }}" hint-placeholder-val="{{ false }}">
+                  <ul class="dot-list">
+                    <sc-for list="{{ item.subjects }}" as="subject" hint-placeholder-count="4">
+                      <li>{{ subject.text }}</li>
+                    </sc-for>
+                  </ul>
+                </sc-if>
+              </article>
+            </sc-for>
+            <sc-if value="{{ eduProof }}" hint-placeholder-val="{{ false }}">
+              <p class="proof-note edu-proof">{{ school.titles.proofNote }}</p>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ jobOpen }}" hint-placeholder-val="{{ false }}">
+      <div class="svc-overlay" onClick="{{ closeJob }}">
+        <div class="svc-dialog job-dialog" role="dialog" aria-modal="true" aria-label="{{ jobModal.name }}" onClick="{{ stopCv }}">
+          <div class="svc-bar">
+            <span class="logo-tile">
+              <sc-if value="{{ jobModal.hasLogo }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ jobModal.src }}" alt="">
+              </sc-if>
+              <sc-if value="{{ jobModal.noLogo }}" hint-placeholder-val="{{ false }}">
+                <span class="monogram">{{ jobModal.initials }}</span>
+              </sc-if>
+            </span>
+            <div class="job-dialog-title">
+              <h2 class="svc-title">{{ jobModal.name }}</h2>
+              <p class="job-dialog-date">{{ jobModal.date }}</p>
+            </div>
+            <button class="icon-btn svc-close" onClick="{{ closeJob }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+          </div>
+          <article class="job svc-body">
+            <div class="job-body">
+              <sc-if value="{{ jobModal.hasLink }}" hint-placeholder-val="{{ true }}">
+                <a class="job-link" href="{{ jobModal.link }}" target="_blank">
+                  <span>{{ jobModal.link }}</span>
+                  <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                </a>
+              </sc-if>
+              <sc-if value="{{ jobModal.hasDescription }}" hint-placeholder-val="{{ true }}">
+                <p>{{ jobModal.description }}</p>
+              </sc-if>
+              <ul class="roles {{ jobModal.rolesCls }}">
+                <sc-for list="{{ jobModal.roles }}" as="role" hint-placeholder-count="2">
+                  <li class="role {{ role.cls }}">
+                    <div class="role-head">
+                      <h4>{{ role.title }}</h4>
+                      <p class="role-date">{{ role.date }}</p>
+                    </div>
+                    <sc-for list="{{ role.paragraphs }}" as="paragraph" hint-placeholder-count="2">
+                      <p>{{ paragraph.text }}</p>
+                    </sc-for>
+                  </li>
+                </sc-for>
+              </ul>
+              <sc-if value="{{ jobModal.hasTasks }}" hint-placeholder-val="{{ true }}">
+                <h4 class="tasks-title">{{ professional.titles.tasks }}</h4>
+                <ul class="dot-list">
+                  <sc-for list="{{ jobModal.tasks }}" as="task" hint-placeholder-count="6">
+                    <li>{{ task.text }}</li>
+                  </sc-for>
+                </ul>
+              </sc-if>
+            </div>
+          </article>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ svcIsAws }}" hint-placeholder-val="{{ false }}">
+      <div class="svc-overlay" onClick="{{ closeSvc }}">
+        <div class="svc-dialog" role="dialog" aria-modal="true" aria-label="{{ aws.name }}" onClick="{{ stopCv }}">
+          <div class="svc-bar">
+            <h2 class="svc-title">{{ aws.name }}</h2>
+            <button class="icon-btn svc-close" onClick="{{ closeSvc }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="svc-body">
+            <div class="aws-grid">
+              <sc-for list="{{ aws.areas }}" as="area" hint-placeholder-count="5">
+                <div class="aws-area">
+                  <h4>{{ area.title }}</h4>
+                  <ul class="tech-grid">
+                    <sc-for list="{{ area.items }}" as="service" hint-placeholder-count="5">
+                      <li class="tech">
+                        <sc-if value="{{ service.hasLogo }}" hint-placeholder-val="{{ true }}">
+                          <img class="{{ service.cls }}" src="{{ service.src }}" alt="">
+                        </sc-if>
+                        <sc-if value="{{ service.noLogo }}" hint-placeholder-val="{{ false }}">
+                          <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ service.icon }}"></use></svg></span>
+                        </sc-if>
+                        <span>{{ service.text }}</span>
+                      </li>
+                    </sc-for>
+                  </ul>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ svcIsCloudflare }}" hint-placeholder-val="{{ false }}">
+      <div class="svc-overlay" onClick="{{ closeSvc }}">
+        <div class="svc-dialog" role="dialog" aria-modal="true" aria-label="{{ cloudflare.name }}" onClick="{{ stopCv }}">
+          <div class="svc-bar">
+            <h2 class="svc-title">{{ cloudflare.name }}</h2>
+            <button class="icon-btn svc-close" onClick="{{ closeSvc }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="svc-body">
+            <ul class="tech-grid">
+              <sc-for list="{{ cloudflare.items }}" as="service" hint-placeholder-count="1">
+                <li class="tech">
+                  <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ service.icon }}"></use></svg></span>
+                  <span>{{ service.text }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ svcIsOci }}" hint-placeholder-val="{{ false }}">
+      <div class="svc-overlay" onClick="{{ closeSvc }}">
+        <div class="svc-dialog" role="dialog" aria-modal="true" aria-label="{{ oci.name }}" onClick="{{ stopCv }}">
+          <div class="svc-bar">
+            <h2 class="svc-title">{{ oci.name }}</h2>
+            <button class="icon-btn svc-close" onClick="{{ closeSvc }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="svc-body">
+            <ul class="tech-grid">
+              <sc-for list="{{ oci.items }}" as="service" hint-placeholder-count="1">
+                <li class="tech">
+                  <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ service.icon }}"></use></svg></span>
+                  <span>{{ service.text }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ svcIsClaude }}" hint-placeholder-val="{{ false }}">
+      <div class="svc-overlay" onClick="{{ closeSvc }}">
+        <div class="svc-dialog" role="dialog" aria-modal="true" aria-label="{{ claude.name }}" onClick="{{ stopCv }}">
+          <div class="svc-bar">
+            <h2 class="svc-title">{{ claude.name }}</h2>
+            <button class="icon-btn svc-close" onClick="{{ closeSvc }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="svc-body">
+            <ul class="tech-grid">
+              <sc-for list="{{ claude.items }}" as="service" hint-placeholder-count="1">
+                <li class="tech">
+                  <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ service.icon }}"></use></svg></span>
+                  <span>{{ service.text }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ svcIsMeta }}" hint-placeholder-val="{{ false }}">
+      <div class="svc-overlay" onClick="{{ closeSvc }}">
+        <div class="svc-dialog" role="dialog" aria-modal="true" aria-label="{{ meta.name }}" onClick="{{ stopCv }}">
+          <div class="svc-bar">
+            <h2 class="svc-title">{{ meta.name }}</h2>
+            <button class="icon-btn svc-close" onClick="{{ closeSvc }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="svc-body">
+            <ul class="tech-grid">
+              <sc-for list="{{ meta.items }}" as="service" hint-placeholder-count="1">
+                <li class="tech">
+                  <span class="tech-glyph"><svg class="ico" aria-hidden="true"><use href="#i-{{ service.icon }}"></use></svg></span>
+                  <span>{{ service.text }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ svcIsLinux }}" hint-placeholder-val="{{ false }}">
+      <div class="svc-overlay" onClick="{{ closeSvc }}">
+        <div class="svc-dialog" role="dialog" aria-modal="true" aria-label="{{ linux.name }}" onClick="{{ stopCv }}">
+          <div class="svc-bar">
+            <h2 class="svc-title">{{ linux.name }}</h2>
+            <button class="icon-btn svc-close" onClick="{{ closeSvc }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="svc-body">
+            <ul class="tech-grid">
+              <sc-for list="{{ linux.items }}" as="service" hint-placeholder-count="1">
+                <li class="tech">
+                  <img class="{{ service.cls }}" src="{{ service.src }}" alt="">
+                  <span>{{ service.name }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  <sc-if value="{{ cvOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="cv-overlay" onClick="{{ closeCv }}">
+      <div class="cv-dialog" role="dialog" aria-modal="true" aria-label="{{ t.cvTitle }}" onClick="{{ stopCv }}">
+        <div class="cv-bar">
+          <h2 class="cv-title">{{ t.cvTitle }}</h2>
+          <div class="cv-lang" role="group" aria-label="{{ t.cvLangLabel }}">
+            <button class="{{ cvPtCls }}" aria-pressed="{{ cvPtPressed }}" aria-label="PT, Português" title="Português" onClick="{{ cvSetPt }}">PT</button>
+            <button class="{{ cvEnCls }}" aria-pressed="{{ cvEnPressed }}" aria-label="EN, English" title="English" onClick="{{ cvSetEn }}">EN</button>
+          </div>
+          <button class="icon-btn" onClick="{{ closeCv }}" aria-label="{{ t.cvClose }}" title="{{ t.cvClose }}"><svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg></button>
+        </div>
+        <div class="cv-pages">
+          <sc-for list="{{ cvPages }}" as="cvPage" hint-placeholder-count="2">
+            <img class="cv-page" src="{{ cvPage.src }}" alt="{{ cvPage.alt }}">
+          </sc-for>
+        </div>
+        <div class="{{ cvDockCls }}">
+          <a class="cv-dock-btn" href="{{ cvLink }}" target="_blank" aria-label="{{ t.cvNewTab }}" title="{{ t.cvNewTab }}">
+            <svg class="ico" aria-hidden="true"><use href="#i-external"></use></svg>
+          </a>
+          <a class="cv-dock-btn cv-dock-main" href="{{ cvLink }}" download="{{ cvFilename }}" onClick="{{ downloadCv }}" aria-label="{{ t.cvDownload }}" title="{{ t.cvDownload }}">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"></use></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>

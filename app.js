@@ -1,36 +1,6 @@
-import { $ } from "./utils/selector.js"
-import { Home } from "./pages/home.js";
-import { setActiveSection } from "./utils/navbar.js";
-import { toggleTheme } from "./utils/theme.js";
-import { languagesCSS } from "./pages/programming.js";
-import { favicon } from "./components/favicon.js";
+import { mount } from './src/dc-lite.js';
+import { Component, defaultProps } from './src/portfolio.js';
 
-const addCSS = css => document.head.appendChild(document.createElement("style")).innerHTML = css;
+const template = await fetch('./src/template.html').then((response) => response.text());
 
-let scrolling = false;
-
-addCSS(languagesCSS());
-
-$("head").innerHTML += favicon();
-
-
-$("body").innerHTML = Home();
-
-$("#theme-toggle").onclick = () => { toggleTheme(); }
-
-$("main").onscroll = () => { scrolling = true; };
-
-setActiveSection();
-
-
-setInterval(() => {
-    if (scrolling) {
-        scrolling = false;
-
-        setActiveSection();
-    }
-}, 200);
-
-window.addEventListener("load", function() {
-    setActiveSection();
-}, false);
+mount(Component, template, document.getElementById('root'), defaultProps);
