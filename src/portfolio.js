@@ -248,7 +248,7 @@ const TECHS = [
 // Fontes: Lattes (24/10/2026) e LinkedIn (exportados pelo Willian). Os nomes dos reconhecimentos vêm do LinkedIn, sem datas.
 const LATTES_LINK = 'http://lattes.cnpq.br/1561732707542523';
 const ORCID_LINK = 'https://orcid.org/0009-0004-4888-9408';
-// PDFs do currículo (português e inglês), gerados por cv/build_cv.py a partir dos mesmos dados. No repositório do Pages, os arquivos vão em docs/.
+// PDFs do currículo (português e inglês), servidos de assets/.
 // Páginas do currículo como imagens: o visualizador funciona mesmo sem leitor de PDF no navegador.
 const CV_FILES = {
   portuguese: { link: blob('1bfd85621958216cf8628bf291513154'), filename: 'curriculo-willian-pacheco-silva.pdf', pages: ['3225a1eeb36f1f2b316c5c5462785256', 'de70106160c6bb377a2198a8e0dca291'] },
