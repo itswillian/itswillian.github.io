@@ -1,8 +1,8 @@
 import { DCLogic } from './dc-lite.js';
 
 const ASSET_EXT = {
-  "1bfd85621958216cf8628bf291513154": "pdf",
-  "b1d0fc34c74f44fbe6bfab8713559336": "pdf",
+  "966483ed79e2b8bbdb535e0247fe478b": "pdf",
+  "340bd9831cd5ec9972789c4f892459c2": "pdf",
   "0b462a9fa3921b566f2c93a870249936": "svg",
   "0eb966ebff0864a162523ec31b822984": "svg",
   "122027c076205ad467201d4e53228aef": "svg",
@@ -16,7 +16,7 @@ const ASSET_EXT = {
   "2b0ddde9aea47aea8615ebf904286431": "png",
   "319afdcdb9fb56dae9de274f381c6fb4": "svg",
   "320c7f232153daf5434d071245876371": "svg",
-  "3225a1eeb36f1f2b316c5c5462785256": "png",
+  "067b25a9fcaedf7a5f3a43cb6cf83beb": "png",
   "32dabf686dcaffdf13f0359ac5a2f306": "svg",
   "36a914379b4362b4741b6f6ce31dc04f": "svg",
   "3861e95bcb52a031e2acd9c6632703a8": "svg",
@@ -70,7 +70,7 @@ const ASSET_EXT = {
   "b94097807bcbf187cde25de25c8317e3": "svg",
   "bac59b29bed669342ef5da4d6f562d94": "svg",
   "c3cee2be487f602103d3ff568fd8604e": "svg",
-  "c43e831ef2dff9cdcd0767f444001ee6": "png",
+  "f26b767c909bb43642f1090a3da4e604": "png",
   "c5e344d02f8418fdd79c104b3d501794": "svg",
   "c8a8769dbc46cac93eee12af2738c2df": "svg",
   "cc55a5fc69b5012efc053a190eef487e": "svg",
@@ -80,12 +80,12 @@ const ASSET_EXT = {
   "d769829ed077dc6b3aec46ef9295973a": "svg",
   "d9a5e1e26ea40825a099818b09e7a20f": "svg",
   "db2435eecab53ff1dd5af9ae0568c680": "svg",
-  "de70106160c6bb377a2198a8e0dca291": "png",
+  "3884710ed1e72074879d3cabf1e41466": "png",
   "dec3172bf71ed9a1d7097bfea7ac4cdc": "svg",
   "dfa8fbd575ada6ff2143116f62826ecf": "svg",
   "e19d3227e735eb5512ac094b4a4b880c": "svg",
   "eee2fbc3e4aadf093258bbc2f95a3375": "svg",
-  "f06aacd5d9bdbaf6237917f2d5c764a1": "png",
+  "3ace75818bfde1b3e2cb0fdfb484ed30": "png",
   "f20802461b0596ec6d6195d404a810dc": "svg",
   "f2681f6411808dd74e879de75951d0f7": "svg",
   "f2fcbe47e9d9b6ef2ff0577fc6f0140d": "svg",
@@ -249,8 +249,8 @@ const ORCID_LINK = 'https://orcid.org/0009-0004-4888-9408';
 // PDFs do currículo (português e inglês), servidos de assets/.
 // Páginas do currículo como imagens: o visualizador funciona mesmo sem leitor de PDF no navegador.
 const CV_FILES = {
-  portuguese: { link: blob('1bfd85621958216cf8628bf291513154'), filename: 'curriculo-willian-pacheco-silva.pdf', pages: ['3225a1eeb36f1f2b316c5c5462785256', 'de70106160c6bb377a2198a8e0dca291'] },
-  english: { link: blob('b1d0fc34c74f44fbe6bfab8713559336'), filename: 'resume-willian-pacheco-silva.pdf', pages: ['f06aacd5d9bdbaf6237917f2d5c764a1', 'c43e831ef2dff9cdcd0767f444001ee6'] },
+  portuguese: { link: blob('966483ed79e2b8bbdb535e0247fe478b'), filename: 'curriculo-willian-pacheco-silva.pdf', pages: ['067b25a9fcaedf7a5f3a43cb6cf83beb', '3884710ed1e72074879d3cabf1e41466'] },
+  english: { link: blob('340bd9831cd5ec9972789c4f892459c2'), filename: 'resume-willian-pacheco-silva.pdf', pages: ['3ace75818bfde1b3e2cb0fdfb484ed30', 'f26b767c909bb43642f1090a3da4e604'] },
 };
 
 // Idioma inicial; o visitante troca pelo seletor PT/EN. O tema inicial é o claro.
@@ -476,7 +476,7 @@ const DATA = {
       socialNetworks: [
         { name: 'GitHub', key: 'github', link: 'https://github.com/itswillian' },
         { name: 'E-mail', key: 'gmail', link: 'mailto:willianpacheco31@gmail.com' },
-        { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/pachecowillians/' },
+        { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/itswillian/' },
         { name: 'Currículo', key: 'curriculum' },
       ],
     },
@@ -1073,7 +1073,7 @@ const DATA = {
       socialNetworks: [
         { name: 'GitHub', key: 'github', link: 'https://github.com/itswillian' },
         { name: 'E-mail', key: 'gmail', link: 'mailto:willianpacheco31@gmail.com' },
-        { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/pachecowillians/' },
+        { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/itswillian/' },
         { name: 'Resume', key: 'curriculum' },
       ],
     },
