@@ -14,7 +14,7 @@ export const profileData = {
             {
                 name: 'Linkedin',
                 referenceName: 'linkedin',
-                link: 'https://www.linkedin.com/in/pachecowillians/'
+                link: 'https://www.linkedin.com/in/itswillian/'
             },
             {
                 name: 'Currículo',
@@ -38,7 +38,7 @@ export const profileData = {
             {
                 name: 'Linkedin',
                 referenceName: 'linkedin',
-                link: 'https://www.linkedin.com/in/pachecowillians/'
+                link: 'https://www.linkedin.com/in/itswillian/'
             },
             {
                 name: 'Curriculum',
