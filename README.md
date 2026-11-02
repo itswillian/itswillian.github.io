@@ -15,7 +15,7 @@ To view the final result, you can access the website hosted on GitHub Pages at [
 
 Before starting the development, a prototype was created in Figma to organize and plan the site's interface. The prototype can be accessed at [https://www.figma.com/file/7Pfru4a5hTF7lrbSqkfmqc/Portfolio?node-id=0%3A1](https://www.figma.com/file/7Pfru4a5hTF7lrbSqkfmqc/Portfolio?node-id=0%3A1).
 
-JavaScript was used to generate the HTML pages dynamically, along with some CSS excerpts, using state management concepts applied to JavaScript and separate files containing page information. To run the project on localhost, an HTTP server is required. During development, the `http-server` package provided by `npm` was used. To install it, run the following command:
+The page is rendered in the browser from a single HTML template (`src/template.html`) and a component with the content and the state (`src/portfolio.js`), using a small runtime (`src/dc-lite.js`) that fills the template and updates only what changed. The styles are in `styles.css` and the images and PDFs are in `assets/`. The site mirrors the final mockup ("Versão final") exactly. To run the project on localhost, an HTTP server is required. During development, the `http-server` package provided by `npm` was used. To install it, run the following command:
 
 ```zsh
 npm install http-server
