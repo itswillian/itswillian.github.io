@@ -195,10 +195,8 @@ const PROJECT_CATS = {
   'https://github.com/itswillian/sveltekit-contacts': 'front',
   'https://github.com/itswillian/wps-termo': 'front',
   'https://github.com/itswillian/wps-timer': 'front',
-  'https://github.com/itswillian/inpeace-frontend': 'front',
   'https://github.com/itswillian/particle-swarm-optimization': 'ia',
   'https://github.com/itswillian/finetuned-model-api': 'ia',
-  'https://github.com/itswillian/closing-price-gan': 'ia',
   'https://github.com/itswillian/opencv': 'ia',
   'https://github.com/itswillian/node-crud-microservice': 'back',
   'https://github.com/itswillian/wps-finance': 'back',
@@ -479,7 +477,7 @@ const DATA = {
         { name: 'GitHub', key: 'github', link: 'https://github.com/itswillian' },
         { name: 'E-mail', key: 'gmail', link: 'mailto:willianpacheco31@gmail.com' },
         { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/pachecowillians/' },
-        { name: 'Currículo', key: 'curriculum', link: 'https://drive.google.com/file/d/10T7wsvErw2WzI4i0kHaKw1mO8OO4s93L/view?usp=sharing' },
+        { name: 'Currículo', key: 'curriculum' },
       ],
     },
     programming: {
@@ -910,7 +908,6 @@ const DATA = {
         {
           name: 'Lista de presentes de casamento',
           link: 'https://github.com/itswillian/react-wedding-gifts',
-          demo: 'https://presentes-de-casamento.vercel.app/',
           date: 'Atualizado em ago. 2024',
           key: 'react-wedding-gifts',
           description: 'O casal monta a lista e compartilha com os convidados os presentes que deseja ganhar.',
@@ -958,14 +955,6 @@ const DATA = {
           tech: ['nodejs', 'docker', 'kubernetes', 'postgresql'],
         },
         {
-          name: 'Closing Price GAN',
-          link: 'https://github.com/itswillian/closing-price-gan',
-          date: 'Atualizado em mai. 2023',
-          key: 'closing-price-gan',
-          description: 'Rede generativa adversarial (GAN) para prever preços de fechamento do mercado financeiro, treinada com dados históricos.',
-          tech: ['python', 'tensorflow', 'keras'],
-        },
-        {
           name: 'WPS Termo',
           link: 'https://github.com/itswillian/wps-termo',
           demo: 'https://wps-termo.vercel.app/',
@@ -990,14 +979,6 @@ const DATA = {
           key: 'opencv',
           description: 'Série de projetos de visão computacional com OpenCV: processamento de imagens, detecção de objetos e regiões de interesse.',
           tech: ['python', 'opencv'],
-        },
-        {
-          name: 'Front-end do processo seletivo inPeace',
-          link: 'https://github.com/itswillian/inpeace-frontend',
-          date: 'Atualizado em mai. 2023',
-          key: 'inpeace-frontend',
-          description: 'Front-end de um processo seletivo da inPeace: simula uma aplicação de gerenciamento de usuários.',
-          tech: ['html', 'javascript', 'sass'],
         },
         {
           name: 'URI Online Judge',
@@ -1093,7 +1074,7 @@ const DATA = {
         { name: 'GitHub', key: 'github', link: 'https://github.com/itswillian' },
         { name: 'E-mail', key: 'gmail', link: 'mailto:willianpacheco31@gmail.com' },
         { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/pachecowillians/' },
-        { name: 'Resume', key: 'curriculum', link: 'https://drive.google.com/file/d/10T7wsvErw2WzI4i0kHaKw1mO8OO4s93L/view?usp=sharing' },
+        { name: 'Resume', key: 'curriculum' },
       ],
     },
     programming: {
@@ -1524,7 +1505,6 @@ const DATA = {
         {
           name: 'Wedding gift registry',
           link: 'https://github.com/itswillian/react-wedding-gifts',
-          demo: 'https://presentes-de-casamento.vercel.app/',
           date: 'Updated in Aug 2024',
           key: 'react-wedding-gifts',
           description: 'Couples build their list and share with guests the gifts they would like to receive.',
@@ -1572,14 +1552,6 @@ const DATA = {
           tech: ['nodejs', 'docker', 'kubernetes', 'postgresql'],
         },
         {
-          name: 'Closing Price GAN',
-          link: 'https://github.com/itswillian/closing-price-gan',
-          date: 'Updated in May 2023',
-          key: 'closing-price-gan',
-          description: 'Generative adversarial network (GAN) to predict closing prices in the financial market, trained on historical data.',
-          tech: ['python', 'tensorflow', 'keras'],
-        },
-        {
           name: 'WPS Termo',
           link: 'https://github.com/itswillian/wps-termo',
           demo: 'https://wps-termo.vercel.app/',
@@ -1604,14 +1576,6 @@ const DATA = {
           key: 'opencv',
           description: 'Series of computer vision projects with OpenCV: image processing, object detection and regions of interest.',
           tech: ['python', 'opencv'],
-        },
-        {
-          name: 'inPeace selection process front end',
-          link: 'https://github.com/itswillian/inpeace-frontend',
-          date: 'Updated in May 2023',
-          key: 'inpeace-frontend',
-          description: 'Front end for an inPeace selection process: simulates a user management application.',
-          tech: ['html', 'javascript', 'sass'],
         },
         {
           name: 'URI Online Judge',
