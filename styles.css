@@ -910,8 +910,8 @@ main {
         line-height: 1;
         color: var(--ink);
     }
-    /* o ultimo nome (Publicacoes) e largo: centralizado com folga de 6px para nao encostar na borda da tela */
-    #app[data-nav] .nav-list > li:last-child .nav-link[aria-current="page"] > span { transform: translateX(calc(-50% - 6px)); }
+    /* a folga lateral leva o centro do ultimo item (Publicacoes, o nome mais largo) para dentro, entao todos os nomes ficam centralizados no circulo */
+    #app[data-nav] .nav-list { padding-right: 12px; padding-left: 12px; }
     #app[data-nav] .nav-link[aria-current="page"] > span > span { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
 }
 
