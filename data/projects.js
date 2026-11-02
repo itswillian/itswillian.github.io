@@ -45,7 +45,7 @@ export const projectsData = {
             },
             {
                 name: 'TCC - CS50',
-                link: 'https://github.com/itswillian/CS50-introduction-to-computer-science',
+                link: 'https://github.com/itswillian/cs50-introduction-to-computer-science',
                 referenceName: 'cs50',
                 description: 'Trabalho de Conclusão de Curso realizado no curso CS50 - Introduction to Computer Science oferecido por Harvard. A aplicação é um gerenciador de tarefas e atividades organizado por datas e tarefas recorrentes.',
                 languages: [
@@ -128,7 +128,7 @@ export const projectsData = {
             },
             {
                 name: 'Final Project - CS50',
-                link: 'https://github.com/itswillian/CS50-introduction-to-computer-science',
+                link: 'https://github.com/itswillian/cs50-introduction-to-computer-science',
                 referenceName: 'cs50',
                 description: 'Completion of course work carried out in the course CS50 - Introduction to Computer Science offered by Harvard. The application is a task and activity manager organized by dates and recurring tasks.',
                 languages: [
