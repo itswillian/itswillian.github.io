@@ -478,7 +478,7 @@ const DATA = {
       socialNetworks: [
         { name: 'GitHub', key: 'github', link: 'https://github.com/itswillian' },
         { name: 'E-mail', key: 'gmail', link: 'mailto:willianpacheco31@gmail.com' },
-        { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/itswillian/' },
+        { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/pachecowillians/' },
         { name: 'Currículo', key: 'curriculum', link: 'https://drive.google.com/file/d/10T7wsvErw2WzI4i0kHaKw1mO8OO4s93L/view?usp=sharing' },
       ],
     },
@@ -1092,7 +1092,7 @@ const DATA = {
       socialNetworks: [
         { name: 'GitHub', key: 'github', link: 'https://github.com/itswillian' },
         { name: 'E-mail', key: 'gmail', link: 'mailto:willianpacheco31@gmail.com' },
-        { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/itswillian/' },
+        { name: 'LinkedIn', key: 'linkedin', link: 'https://www.linkedin.com/in/pachecowillians/' },
         { name: 'Resume', key: 'curriculum', link: 'https://drive.google.com/file/d/10T7wsvErw2WzI4i0kHaKw1mO8OO4s93L/view?usp=sharing' },
       ],
     },
