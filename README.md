@@ -24,6 +24,7 @@ There is no build step. The browser loads `index.html`, which runs `app.js`:
 | `src/dc-lite.js` | Small runtime that fills the template and updates only what changed |
 | `styles.css` | All styles, including the light and dark themes |
 | `assets/` | Images, icons and the resume PDFs |
+| `favicon.svg` | Loomis mark, light and dark variants |
 | `docs/` | Documents kept at their public URLs |
 
 ## Running locally
