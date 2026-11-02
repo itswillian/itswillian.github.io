@@ -4,7 +4,7 @@ export const profileData = {
         socialNetworks: [{
                 name: 'GitHub',
                 referenceName: 'github',
-                link: 'https://github.com/pachecowillians'
+                link: 'https://github.com/itswillian'
             },
             {
                 name: 'Gmail',
@@ -28,7 +28,7 @@ export const profileData = {
         socialNetworks: [{
                 name: 'GitHub',
                 referenceName: 'github',
-                link: 'https://github.com/pachecowillians'
+                link: 'https://github.com/itswillian'
             },
             {
                 name: 'Gmail',
