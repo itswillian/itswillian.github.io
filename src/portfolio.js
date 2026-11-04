@@ -1856,10 +1856,12 @@ class Component extends DCLogic {
     const distance = Math.abs(to - from);
     this.navTarget = id;
     if (id !== this.state.active) this.setState({ active: id });
-    // O cabeçalho da seção (ou o herói) chega com um leve deslize, só quando o usuário pediu a navegação.
+    // Pela navegação, o título da seção de destino acende quando a rolagem está chegando.
+    let arrived = false;
     const arrive = () => {
-      const el = target.querySelector('.section-head') || target.querySelector('.hero');
-      if (el && el.animate && !calm) el.animate([{ opacity: 0.35, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], { duration: 600, easing: 'cubic-bezier(0.2, 0.7, 0.2, 1)' });
+      if (arrived) return;
+      arrived = true;
+      this.revealTitle(target.querySelector('.section-title'));
     };
     const finish = () => {
       main.style.scrollBehavior = '';
@@ -1888,12 +1890,26 @@ class Component extends DCLogic {
       if (done) return;
       const t = Math.min(1, (now - t0) / duration);
       main.scrollTop = from + (to - from) * ease(t);
+      if (t >= 0.8) arrive();
       if (t < 1) { frame = window.requestAnimationFrame(step); return; }
       done = true;
       finish();
-      arrive();
     };
     frame = window.requestAnimationFrame(step);
+  }
+
+  // Acende o título da seção (fade e traço amarelo, sem mover nada). Cada título só acende uma vez por visita.
+  revealTitle(el) {
+    const calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!el || calm) return;
+    this.seenTitles = this.seenTitles || new WeakSet();
+    this.seenTitles.add(el);
+    window.clearTimeout(this.arriveTimer);
+    if (this.arriveEl) this.arriveEl.classList.remove('arrive');
+    void el.offsetWidth;
+    el.classList.add('arrive');
+    this.arriveEl = el;
+    this.arriveTimer = window.setTimeout(() => { el.classList.remove('arrive'); this.arriveEl = null; }, 1100);
   }
 
   syncActive() {
@@ -1958,6 +1974,21 @@ class Component extends DCLogic {
     // Como o site original: o layout muda sem evento de rolagem (acordeão, fontes, imagens), então reconfere a cada 300 ms.
     this.activeTimer = window.setInterval(() => this.syncActive(), 300);
     this.syncActive();
+    // Ao rolar à mão, o título também acende na primeira vez que a seção entra na tela. Durante a rolagem do menu
+    // (navTarget), as seções do caminho não acendem: só a de destino, no fim.
+    const mainEl = document.querySelector('main');
+    const motionOk = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (mainEl && motionOk && 'IntersectionObserver' in window) {
+      this.seenTitles = this.seenTitles || new WeakSet();
+      this.titleObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || this.navTarget || this.seenTitles.has(entry.target)) return;
+          this.revealTitle(entry.target);
+          this.titleObserver.unobserve(entry.target);
+        });
+      }, { root: mainEl, threshold: 0.6, rootMargin: '0px 0px -12% 0px' });
+      mainEl.querySelectorAll('section .section-title').forEach((el) => this.titleObserver.observe(el));
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -1986,6 +2017,9 @@ class Component extends DCLogic {
     window.clearInterval(this.badgeTimer);
     window.clearTimeout(this.badgeSwap);
     window.clearInterval(this.activeTimer);
+    if (this.titleObserver) this.titleObserver.disconnect();
+    window.clearTimeout(this.arriveTimer);
+    if (this.scrollStop) this.scrollStop();
   }
 
   root() {

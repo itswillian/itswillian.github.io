@@ -227,40 +227,55 @@
     </section>
 
     <section id="company" class="section">
-      <div class="wrap split">
-        <header class="section-head">
+      <div class="wrap split co">
+        <div class="co-left">
+        <header class="section-head co-head">
           <h2 class="section-title">{{ t.nav.company }}</h2>
           <p class="lede">{{ company.informationText }}</p>
         </header>
-        <div class="company">
-          <article class="company-card">
-            <div class="company-main">
-              <svg class="company-mark" aria-hidden="true" viewBox="0 0 566 548"><use href="#i-loomis"></use></svg>
-              <img class="loomis-logo" src="{{ loomisLogoDark }}" alt="Loomis">
-              <p class="company-tagline">{{ company.tagline }}</p>
-              <a class="btn btn-brand" href="{{ company.mailto }}">
-                <span>{{ company.cta }}</span>
-                <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-              </a>
+        <div class="co-stage" aria-hidden="true">
+          <svg class="co-mark" viewBox="0 0 566 548" aria-hidden="true" focusable="false">
+            <path class="facet f-base" d="M98.3,532.75 Q107.05,541 117,541 L420,541 A300.1,300.1 0 0 1 208.5,386 L202,373 Z"></path>
+            <path class="facet f-wedge" d="M 208.5,386 L545,386 Q557,386 551,396 L448,531 Q441,541 425,541 L420,541 A300.1,300.1 0 0 1 208.5,386 Z"></path>
+            <path class="facet f-body" d="M202.7,117 L27.609,332.784 Q11.227,352.974 22.025,376.626 L82,508 Q89.55,524.5 98.3,532.75 L202,373 A300.1,300.1 0 0 1 202.7,117 Z"></path>
+            <path class="facet f-top" d="M292.075,23.500 L293,228 Q293,250 281,266 L202,373 A300.1,300.1 0 0 1 202.7,117 L281.600,19.810 Q292.000,7.000 292.075,23.500 Z"></path>
+          </svg>
+        </div>
+        <dl class="co-facts">
+          <sc-for list="{{ company.facts }}" as="fact" hint-placeholder-count="3">
+            <div>
+              <dt>{{ fact.label }}</dt>
+              <dd>{{ fact.value }}</dd>
             </div>
-            <dl class="company-facts">
-              <sc-for list="{{ company.facts }}" as="fact" hint-placeholder-count="3">
-                <div>
-                  <dt>{{ fact.label }}</dt>
-                  <dd>{{ fact.value }}</dd>
-                </div>
-              </sc-for>
-            </dl>
-          </article>
-          <ul class="pillars">
+          </sc-for>
+        </dl>
+        </div>
+        <div class="co-right">
+        <div class="co-intro">
+            <img class="loomis-logo logo-light" src="{{ loomisLogo }}" alt="Loomis">
+            <img class="loomis-logo logo-dark" src="{{ loomisLogoDark }}" alt="Loomis">
+            <p class="co-tagline">{{ company.tagline }}</p>
+            <a class="btn btn-brand" href="{{ company.mailto }}">
+              <span>{{ company.cta }}</span>
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+          </div>
+          <ol class="co-pillars">
             <sc-for list="{{ company.pillars }}" as="pillar" hint-placeholder-count="4">
-              <li>
-                <span class="ai-mark"><svg class="ico" aria-hidden="true"><use href="#i-{{ pillar.icon }}"></use></svg></span>
-                <h3>{{ pillar.title }}</h3>
-                <p>{{ pillar.text }}</p>
+              <li class="co-pillar k-{{ pillar.icon }}" tabindex="0">
+                <svg class="co-mini" viewBox="0 0 566 548" aria-hidden="true" focusable="false">
+                  <path class="f-base" d="M98.3,532.75 Q107.05,541 117,541 L420,541 A300.1,300.1 0 0 1 208.5,386 L202,373 Z"></path>
+                  <path class="f-wedge" d="M 208.5,386 L545,386 Q557,386 551,396 L448,531 Q441,541 425,541 L420,541 A300.1,300.1 0 0 1 208.5,386 Z"></path>
+                  <path class="f-body" d="M202.7,117 L27.609,332.784 Q11.227,352.974 22.025,376.626 L82,508 Q89.55,524.5 98.3,532.75 L202,373 A300.1,300.1 0 0 1 202.7,117 Z"></path>
+                  <path class="f-top" d="M292.075,23.500 L293,228 Q293,250 281,266 L202,373 A300.1,300.1 0 0 1 202.7,117 L281.600,19.810 Q292.000,7.000 292.075,23.500 Z"></path>
+                </svg>
+                <div class="co-pillar-text">
+                  <h3>{{ pillar.title }}</h3>
+                  <p>{{ pillar.text }}</p>
+                </div>
               </li>
             </sc-for>
-          </ul>
+          </ol>
         </div>
       </div>
     </section>

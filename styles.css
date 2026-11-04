@@ -296,6 +296,30 @@ main {
     text-wrap: balance;
 }
 
+/* chegada por navegacao: o titulo acende e um traco amarelo se desenha embaixo (sem deslocar nada) */
+.section-title.arrive { position: relative; animation: title-arrive 0.5s ease-out; }
+.section-title.arrive::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    width: 2.75rem;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform-origin: left;
+    animation: title-bar 1s ease-out both;
+}
+@keyframes title-arrive { from { opacity: 0.4; } to { opacity: 1; } }
+@keyframes title-bar {
+    0% { transform: scaleX(0); opacity: 1; }
+    35%, 75% { transform: scaleX(1); opacity: 1; }
+    100% { transform: scaleX(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .section-title.arrive, .section-title.arrive::after { animation: none; }
+}
+
 .lede {
     max-width: 40ch;
     margin-top: 20px;
@@ -693,74 +717,117 @@ main {
 .project .btn { margin-top: auto; }
 
 /* ---------- empresa (Loomis) ---------- */
+/* sem painel: usa a grade 4fr/8fr do site. a esquerda (fixa ao rolar) leva titulo, texto e o simbolo grande da Loomis;
+   a direita leva a promessa, o botao, os quatro pilares como etapas e a ficha. passar o mouse (ou focar) num pilar acende a faceta dele no simbolo. */
 
-.company {
-    --loomis: #4A2BFF;
-    --on-loomis: #FFFFFF;
-    display: grid;
-    gap: 20px;
-}
-
-/* escuro: alem do azul, usa papel (fatos) e o amarelo do site como unico acento */
-#app[data-theme="dark"] .company { --loomis: #F2B632; --on-loomis: #0B1630; }
-#app[data-theme="dark"] .company-card { border-color: transparent; }
-#app[data-theme="dark"] .company-main { --loomis: inherit; }
-#app[data-theme="dark"] .company-facts { background: #F7F6F2; color: #0E1330; border-color: #E2E0D8; }
-#app[data-theme="dark"] .company-facts dt { color: #5C6078; }
-
-/* cartao: painel de marca em tinta (fundo permitido para a logo escura do design system nos dois temas) + fatos */
-.company-card {
-    display: grid;
+.co {
+    --loomis: #F2B632;
+    --on-loomis: #0B1630;
+    --co-mark: #0B1630;
+    --co-mini: rgba(11, 22, 48, 0.2);
     align-items: stretch;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    background: var(--surface);
-    box-shadow: var(--shadow);
 }
-
-.company-main {
-    --loomis: #7A8CFF;
-    --on-loomis: #0E1330;
-    position: relative;
-    isolation: isolate;
-    display: grid;
-    gap: 28px;
-    justify-items: start;
-    align-content: space-between;
-    min-height: 20rem;
-    padding: clamp(28px, 4vw, 44px);
-    overflow: hidden;
-    background: #0E1330;
-    color: #F7F6F2;
-}
-
-/* simbolo grande como marca d'agua, so como textura */
-.company-mark { position: absolute; z-index: -1; right: -12%; bottom: -22%; width: 78%; max-width: 26rem; height: auto; color: #8F9EFF; opacity: 0.1; pointer-events: none; }
-
-.company-facts { display: grid; gap: 20px; align-content: center; margin: 0; padding: 28px; }
-.company-facts dt { color: var(--muted); font-size: 0.8125rem; font-weight: 600; }
-.company-facts dd { margin: 4px 0 0; font-weight: 600; line-height: 1.4; }
-
+/* no desktop: duas colunas. a esquerda (titulo, frase, simbolo e ficha) acompanha a rolagem, como as outras secoes;
+   a direita traz logo, chamada e os quatro pilares. passar o mouse num pilar acende a faceta dele no simbolo, sempre a vista */
 @media (min-width: 901px) {
-    .company-card { grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); }
-    .company-facts { padding: 36px; border-left: 1px solid var(--line); }
+    .split.co { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); align-items: start; }
+    .co-left { position: sticky; top: 48px; display: flex; flex-direction: column; gap: clamp(24px, 3.2vw, 40px); min-width: 0; }
+    #app[data-nav="pill"] .co-left { top: 116px; }
+    .co-left .co-head { position: static; }
+    .co-right { display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px); min-width: 0; }
+    .co .co-facts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin: 0; padding: 0; border: 0; }
+    .co .co-facts > div { padding: 0; }
+}
+#app[data-theme="dark"] .co {
+    --co-mark: #E3E9FB;
+    --co-mini: rgba(238, 241, 248, 0.26);
 }
 
-.loomis-logo { display: block; width: auto; height: 52px; }
+.co-stage .co-mark { display: block; width: min(100%, 20rem, max(10rem, calc(100vh - 560px))); height: auto; overflow: visible; color: var(--co-mark); }
+.co-mark .facet { fill: currentColor; fill-opacity: var(--o); transition: fill 0.35s ease, fill-opacity 0.35s ease; }
+.f-base { --o: 0.7; --dx: 0px; --dy: 70px; }
+.f-wedge { --o: 0.55; --dx: 70px; --dy: 40px; }
+.f-body { --o: 1; --dx: -70px; --dy: 0px; }
+.f-top { --o: 0.85; --dx: 0px; --dy: -70px; }
 
-.company-tagline { max-width: 20ch; font-family: var(--display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; text-wrap: balance; }
+.co:has(.co-pillar:is(:hover, :focus-visible)) .co-mark .facet { fill-opacity: 0.14; }
+.co:has(.k-target:is(:hover, :focus-visible)) .co-mark .f-top,
+.co:has(.k-projects:is(:hover, :focus-visible)) .co-mark .f-body,
+.co:has(.k-programming:is(:hover, :focus-visible)) .co-mark .f-base,
+.co:has(.k-cicd:is(:hover, :focus-visible)) .co-mark .f-wedge { fill: var(--loomis); fill-opacity: 1; }
+
+/* uma entrada so: as facetas se encaixam quando o simbolo aparece na tela */
+@keyframes co-assemble { from { opacity: 0; transform: translate(var(--dx), var(--dy)); } to { opacity: 1; transform: none; } }
+@supports (animation-timeline: view()) {
+    .co-mark .facet { animation: co-assemble linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .co-mark .facet { animation: none; transition: none; }
+}
+
+/* logo clara sobre fundo claro, escura sobre fundo escuro (logo.md) */
+.co-intro { display: grid; grid-template-rows: auto 1fr auto; gap: 28px; justify-items: start; min-width: 0; }
+.co-intro .co-tagline { align-self: start; }
+.loomis-logo { display: none; width: auto; height: 44px; }
+.co .logo-light { display: block; }
+#app[data-theme="dark"] .co .logo-light { display: none; }
+#app[data-theme="dark"] .co .logo-dark { display: block; }
+.co-tagline { max-width: 14ch; font-family: var(--display); font-size: clamp(2.5rem, 5.2vw, 4.5rem); font-stretch: 85%; font-weight: 700; line-height: 1; letter-spacing: -0.035em; text-wrap: balance; }
 
 .btn-brand { background: var(--loomis); color: var(--on-loomis); }
-.btn-brand:hover { filter: brightness(1.12); }
-.btn-brand:focus-visible { outline-color: #F7F6F2; }
+.btn-brand:hover { filter: brightness(1.08); }
+.btn-brand:focus-visible { outline-color: var(--ink); outline-offset: 3px; }
 
-.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px; }
-.pillars li { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
-.pillars .ai-mark { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 14px; padding: 0; border-radius: 12px; background: color-mix(in srgb, var(--loomis) 12%, transparent); color: var(--loomis); }
-.pillars .ai-mark .ico { width: 20px; height: 20px; }
-.pillars h3 { font-size: 1.0625rem; font-weight: 600; }
-.pillars p { margin-top: 8px; color: var(--ink-2); line-height: 1.6; text-wrap: pretty; }
+/* pilares: quatro etapas, do desenho a evolucao; o icone de cada um e o simbolo com a faceta dele acesa */
+.co-pillars { margin: 0; padding: 0; list-style: none; counter-reset: pillar; border-bottom: 1px solid var(--line); }
+.co-pillar { position: relative; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 8px 24px; align-items: center; padding: 26px 56px 26px 12px; border-top: 1px solid var(--line); counter-increment: pillar; transition: background-color 0.25s ease; }
+.co-pillar::after { content: counter(pillar, decimal-leading-zero); position: absolute; top: 50%; right: 12px; color: var(--muted); font-family: var(--display); font-size: 1rem; font-weight: 700; font-variant-numeric: tabular-nums; transform: translateY(-50%); transition: color 0.25s ease; }
+/* o destaque ao passar o mouse so existe onde o simbolo grande esta na tela (desktop); abaixo disso ele nao liga a nada e so atrapalha a leitura */
+@media (min-width: 901px) {
+    .co-pillar:is(:hover, :focus-visible) { background: var(--surface); }
+    .co-pillar:is(:hover, :focus-visible)::after { color: var(--ink); }
+}
+.co-pillar:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; border-radius: 12px; }
+.co-mini { width: 56px; height: auto; }
+.co-mini path { fill: var(--co-mini); transition: fill 0.3s ease; }
+/* um unico cinza claro para as facetas que nao sao da etapa; so a faceta da etapa fica amarela */
+.k-target .co-mini .f-top,
+.k-projects .co-mini .f-body,
+.k-programming .co-mini .f-base,
+.k-cicd .co-mini .f-wedge { fill: var(--loomis); }.co-pillar-text { display: grid; gap: 6px; min-width: 0; }
+.co-pillar h3 { font-family: var(--display); font-size: 1.375rem; font-weight: 650; letter-spacing: -0.015em; line-height: 1.2; }
+.co-pillar p { max-width: 52ch; color: var(--ink-2); font-size: 1rem; line-height: 1.55; text-wrap: pretty; }
+
+/* ficha da empresa: fica na coluna esquerda, abaixo do simbolo */
+.co-head { position: static; }
+.co-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.co-facts > div { min-width: 0; }
+.co-facts dt { color: var(--muted); font-size: 0.875rem; font-weight: 600; }
+.co-facts dd { margin: 4px 0 0; font-family: var(--display); font-size: 1.125rem; font-weight: 600; line-height: 1.3; text-wrap: balance; }
+
+@media (max-width: 900px) {
+    /* sem o simbolo grande: longe dos pilares ele nao acende nada, e a logo principal ja abre a secao.
+       ordem: titulo, logo e frase com o botao, depois a frase de apresentacao junto da ficha, e por fim os pilares */
+    .co-head { display: contents; }
+    .co-left, .co-right { display: contents; }
+    .co-stage { display: none; }
+    .co-intro { order: 1; }
+    .co-head .lede { order: 2; margin: 0 0 -12px; }
+    .co-facts { order: 3; }
+    .co-pillars { order: 4; }
+    .co-pillars > .co-pillar:first-child { border-top: 0; }
+    .co-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 20px 0; }
+    .co-tagline { max-width: 16ch; }
+}
+
+@media (max-width: 640px) {
+    .co-facts { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0; border-bottom: 0; }
+    .co-facts > div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .co-facts dd { margin: 0; font-size: 1rem; }
+    .co-pillar { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 22px 40px 22px 0; }
+    .co-mini { width: 44px; }
+    .co-pillar::after { right: 0; }
+}
 
 /* ---------- contato ---------- */
 
@@ -1362,7 +1429,9 @@ main {
 .gx-year.minor { opacity: 0; }
 .gx-now { color: var(--ink); font-weight: 700; transform: translateX(calc(-100% + 1px)); }
 .gx-body { position: relative; }
-.gx-today { position: absolute; top: 0; bottom: 0; left: calc(var(--gx-label) + (100% - var(--gx-label)) * var(--p)); z-index: 2; width: 2px; margin-left: -1px; background: var(--accent); pointer-events: none; }
+/* "Hoje": em vez de uma linha unica cruzando o grafico inteiro (nomes e intervalos entre as linhas), cada faixa leva o seu proprio marcador, por cima das barras */
+.gx-today { display: none; }
+.gx-lane::after { content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--p, 0.92) * 100%); z-index: 2; width: 2px; margin-left: -1px; background: var(--accent); pointer-events: none; }
 .gx-group { border-top: 1px solid var(--line); }
 .gx-group + .gx-group { margin-top: 20px; }
 .gx-group-title { padding: 14px 0 6px; color: var(--muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -1436,12 +1505,9 @@ button.gx-hit:focus-visible { outline: 2px solid var(--brand); outline-offset: 2
     .gx-axis { grid-template-columns: minmax(0, 1fr); }
     .gx-axis-pad { display: none; }
     .gx-year.mid { opacity: 0; }
-    .gx-today { display: none; }
     .gx-hit { grid-template-columns: minmax(0, 1fr); gap: 6px; min-height: 0; padding: 10px 0; }
     .gx-label { padding-right: 0; }
     .gx-go { opacity: 1; transform: none; }
-    /* "Hoje" fica por cima das barras (como no desktop), e nao no fundo da faixa, onde elas o cobriam */
-    .gx-lane::after { content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--p, 0.92) * 100%); z-index: 2; width: 2px; margin-left: -1px; background: var(--accent); pointer-events: none; }
     /* Sem largura minima: um cargo curto nao invade o degrau seguinte */
     .gx-seg.step { min-width: 0; }
 }
