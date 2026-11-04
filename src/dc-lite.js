@@ -67,6 +67,7 @@ const build = (node, scope, parent) => {
     }
   }
   el._own = own;
+  el._tplClass = el.getAttribute('class');
   node.childNodes.forEach((child) => build(child, scope, el));
   parent.appendChild(el);
 };
@@ -83,8 +84,11 @@ const patch = (live, next) => {
   }
   live._own = next._own;
   for (const attr of next.attributes) {
+    // classes que o próprio código acrescenta (ex.: o destaque do título) só são regravadas quando a classe do template muda
+    if (attr.name === 'class' && live._tplClass === attr.value) continue;
     if (live.getAttribute(attr.name) !== attr.value) live.setAttribute(attr.name, attr.value);
   }
+  live._tplClass = next.getAttribute('class');
   HANDLERS.forEach((name) => { if (live[name] !== next[name]) live[name] = next[name]; });
   patchChildren(live, next);
 };
