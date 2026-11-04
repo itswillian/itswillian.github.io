@@ -2319,7 +2319,7 @@ class Component extends DCLogic {
       eduItems: eduModalView.items.map((item) => ({ ...item, hasProof: false, showName: !item.hideName })),
       eduProof: eduModalView.items.some((item) => item.hasProof),
       closeEdu: () => this.setState({ eduModal: '' }),
-      projectsLayout: ['lista', 'compacta', 'grade'].includes(this.props.projectsLayout) ? this.props.projectsLayout : 'compacta',
+      projectsLayout: 'compacta',
       themeIcon: dark ? 'sun' : 'moon',
       ptCls: language === 'portuguese' ? 'on' : '',
       enCls: language === 'english' ? 'on' : '',
@@ -2483,4 +2483,4 @@ class Component extends DCLogic {
 }
 
 export { Component };
-export const defaultProps = {"projectsLayout": "compacta"};
+export const defaultProps = {};
