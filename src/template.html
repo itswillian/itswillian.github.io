@@ -235,10 +235,8 @@
         <div class="company">
           <article class="company-card">
             <div class="company-main">
-              <div class="company-brand">
-                <img class="loomis-logo logo-light" src="{{ loomisLogo }}" alt="Loomis">
-                <img class="loomis-logo logo-dark" src="{{ loomisLogoDark }}" alt="Loomis">
-              </div>
+              <svg class="company-mark" aria-hidden="true" viewBox="0 0 566 548"><use href="#i-loomis"></use></svg>
+              <img class="loomis-logo" src="{{ loomisLogoDark }}" alt="Loomis">
               <p class="company-tagline">{{ company.tagline }}</p>
               <a class="btn btn-brand" href="{{ company.mailto }}">
                 <span>{{ company.cta }}</span>
@@ -414,7 +412,7 @@
             </sc-for>
           </div>
         </header>
-        <div class="project-grid" role="tabpanel" id="{{ projPanelId }}" aria-labelledby="{{ projTabId }}">
+        <div class="project-grid" data-flip="{{ projFlip }}" role="tabpanel" id="{{ projPanelId }}" aria-labelledby="{{ projTabId }}">
           <sc-for list="{{ projectItems }}" as="project" hint-placeholder-count="6">
             <article class="project">
               <div class="project-body">
@@ -469,7 +467,7 @@
             </sc-for>
           </div>
         </header>
-        <ol class="pubs" role="tabpanel" id="{{ pubPanelId }}" aria-labelledby="{{ pubTabId }}">
+        <ol class="pubs" data-flip="{{ pubFlip }}" role="tabpanel" id="{{ pubPanelId }}" aria-labelledby="{{ pubTabId }}">
           <sc-for list="{{ pubItems }}" as="pub" hint-placeholder-count="5">
             <li class="pub">
               <div class="pub-meta">

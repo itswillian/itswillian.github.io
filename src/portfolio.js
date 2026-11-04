@@ -55,7 +55,7 @@ const ASSET_EXT = {
   "9b40c94f46a2c4bfc39006d49afd3609": "svg",
   "9d59acfa8db05d42342dd8bdc5f10178": "svg",
   "9d886a47c9468aa891a605445f682da0": "svg",
-  "a1420a16d16270cfd919d291b3fcd701": "svg",
+  "6a0ebd75246dd13a6d5b9a8c67d4d40e": "svg",
   "a15e6320e4637e51defa329a0737bf25": "svg",
   "a406475ec9e536f1fee9f778ed5dcd9a": "svg",
   "a966d6fa35cc7648ed777f526cc5af42": "svg",
@@ -148,7 +148,7 @@ const IMAGE_IDS = {
   awsBastion: 'c8a8769dbc46cac93eee12af2738c2df',
   githubcopilot: '3861e95bcb52a031e2acd9c6632703a8',
   loomis: '3cab9eb69b95010aeed26f834abc40ed',
-  loomisDark: 'a1420a16d16270cfd919d291b3fcd701',
+  loomisDark: '6a0ebd75246dd13a6d5b9a8c67d4d40e',
   controleeletronica: '92a09d67b7adcb949b586aa39835d7bc',
   html: 'a406475ec9e536f1fee9f778ed5dcd9a',
   css: '5cdbec6252616a0e64b95d9697972049',
@@ -1992,6 +1992,14 @@ class Component extends DCLogic {
     return document.querySelector('[data-app-id="' + this.appId + '"]');
   }
 
+  // alterna 0/1 a cada troca de valor (aba): usado para reiniciar a animacao de entrada
+  flipOf(key, value) {
+    this._flips = this._flips || {};
+    const slot = this._flips[key] || (this._flips[key] = { value, n: 0 });
+    if (slot.value !== value) { slot.value = value; slot.n += 1; }
+    return slot.n % 2;
+  }
+
   renderVals() {
     const language = this.state.language || DEFAULT_LANGUAGE;
     const dark = this.state.dark === true;
@@ -2444,6 +2452,8 @@ class Component extends DCLogic {
       progTabs,
       projTabs,
       projTabsLabel: ui.projTabsLabel,
+      projFlip: this.flipOf('proj', this.state.projTab),
+      pubFlip: this.flipOf('pub', pubYear),
       projPanelId: 'tabpanel-proj-' + this.state.projTab + '-' + this.appId,
       projTabId: 'tab-proj-' + this.state.projTab + '-' + this.appId,
       progOn: onFlags(['ia', 'cloud', 'lang'], this.state.progTab),

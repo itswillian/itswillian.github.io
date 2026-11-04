@@ -12,6 +12,8 @@
     --muted: #586480;
     --line: rgba(11, 22, 48, 0.12);
     --brand: #1F3C88;
+    --mark: #1F3C88;
+    --on-mark: #F4F6FA;
     --mono: brightness(0);
     --flip: none;
     --accent: #F2B632;
@@ -30,6 +32,8 @@
     --muted: #8F9BB8;
     --line: rgba(238, 241, 248, 0.14);
     --brand: #9DB2F7;
+    --mark: #F2B632;
+    --on-mark: #0B1630;
     --mono: brightness(0) invert(1);
     --flip: invert(1) brightness(0.92);
     --band: #111B36;
@@ -690,49 +694,71 @@ main {
 
 /* ---------- empresa (Loomis) ---------- */
 
-.company { display: grid; gap: 20px; }
-
-.company-card {
+.company {
     --loomis: #4A2BFF;
     --on-loomis: #FFFFFF;
     display: grid;
-    gap: 28px;
+    gap: 20px;
+}
+
+/* escuro: alem do azul, usa papel (fatos) e o amarelo do site como unico acento */
+#app[data-theme="dark"] .company { --loomis: #F2B632; --on-loomis: #0B1630; }
+#app[data-theme="dark"] .company-card { border-color: transparent; }
+#app[data-theme="dark"] .company-main { --loomis: inherit; }
+#app[data-theme="dark"] .company-facts { background: #F7F6F2; color: #0E1330; border-color: #E2E0D8; }
+#app[data-theme="dark"] .company-facts dt { color: #5C6078; }
+
+/* cartao: painel de marca em tinta (fundo permitido para a logo escura do design system nos dois temas) + fatos */
+.company-card {
+    display: grid;
     align-items: stretch;
-    padding: 28px;
+    overflow: hidden;
     border: 1px solid var(--line);
     border-radius: 24px;
     background: var(--surface);
     box-shadow: var(--shadow);
 }
 
-#app[data-theme="dark"] .company-card { --loomis: #7A8CFF; --on-loomis: #0E1330; }
+.company-main {
+    --loomis: #7A8CFF;
+    --on-loomis: #0E1330;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    gap: 28px;
+    justify-items: start;
+    align-content: space-between;
+    min-height: 20rem;
+    padding: clamp(28px, 4vw, 44px);
+    overflow: hidden;
+    background: #0E1330;
+    color: #F7F6F2;
+}
 
-.company-main { display: grid; gap: 24px; justify-items: start; align-content: start; }
+/* simbolo grande como marca d'agua, so como textura */
+.company-mark { position: absolute; z-index: -1; right: -12%; bottom: -22%; width: 78%; max-width: 26rem; height: auto; color: #8F9EFF; opacity: 0.1; pointer-events: none; }
 
-.company-facts { display: grid; gap: 20px; align-content: center; margin: 0; padding-top: 24px; border-top: 1px solid var(--line); }
+.company-facts { display: grid; gap: 20px; align-content: center; margin: 0; padding: 28px; }
 .company-facts dt { color: var(--muted); font-size: 0.8125rem; font-weight: 600; }
 .company-facts dd { margin: 4px 0 0; font-weight: 600; line-height: 1.4; }
 
 @media (min-width: 901px) {
-    .company-card { grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); gap: 36px; }
-    .company-facts { padding: 0 0 0 36px; border-top: 0; border-left: 1px solid var(--line); }
+    .company-card { grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); }
+    .company-facts { padding: 36px; border-left: 1px solid var(--line); }
 }
 
-/* o logo claro e o escuro seguem o design system: o escuro so vai sobre fundo de tinta */
-.company-brand { padding: 20px 24px; border-radius: 16px; background: var(--bg); }
-.loomis-logo { display: block; width: auto; height: 56px; }
-.logo-dark { display: none; }
-#app[data-theme="dark"] .logo-light { display: none; }
-#app[data-theme="dark"] .logo-dark { display: block; }
+.loomis-logo { display: block; width: auto; height: 52px; }
 
-.company-tagline { max-width: 24ch; font-family: var(--display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; text-wrap: balance; }
+.company-tagline { max-width: 20ch; font-family: var(--display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; text-wrap: balance; }
 
 .btn-brand { background: var(--loomis); color: var(--on-loomis); }
 .btn-brand:hover { filter: brightness(1.12); }
+.btn-brand:focus-visible { outline-color: #F7F6F2; }
 
 .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px; }
 .pillars li { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
-.pillars .ai-mark { display: block; width: 24px; height: 24px; margin-bottom: 14px; padding-top: 0; }
+.pillars .ai-mark { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 14px; padding: 0; border-radius: 12px; background: color-mix(in srgb, var(--loomis) 12%, transparent); color: var(--loomis); }
+.pillars .ai-mark .ico { width: 20px; height: 20px; }
 .pillars h3 { font-size: 1.0625rem; font-weight: 600; }
 .pillars p { margin-top: 8px; color: var(--ink-2); line-height: 1.6; text-wrap: pretty; }
 
@@ -1154,8 +1180,18 @@ main {
     font-variant-numeric: tabular-nums;
     text-align: center;
 }
-.vtab[aria-selected="true"] .vtab-count { border-color: var(--brand); color: var(--brand); }
+.vtab[aria-selected="true"] .vtab-count { border-color: var(--mark); color: var(--mark); }
 .tab-panel[data-active="false"] { display: none; }
+/* troca de aba: o conteudo novo entra com um fade curto (cartoes de projetos e publicacoes entram em sequencia leve) */
+@keyframes panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.tab-panel[data-active="true"] { animation: panel-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes panel-in-b { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+/* o conteudo reaproveita os mesmos elementos: data-flip alterna o nome da animacao para ela recomecar a cada troca de aba */
+.project-grid > *, .pubs > * { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1); animation-fill-mode: both; animation-name: panel-in; }
+.project-grid[data-flip="1"] > *, .pubs[data-flip="1"] > * { animation-name: panel-in-b; }
+.project-grid > :nth-child(2), .pubs > :nth-child(2) { animation-delay: 0.04s; }
+.project-grid > :nth-child(3), .pubs > :nth-child(3) { animation-delay: 0.08s; }
+.project-grid > :nth-child(n+4), .pubs > :nth-child(n+4) { animation-delay: 0.12s; }
 .tab-panel:focus-visible { outline-offset: 6px; }
 @media (max-width: 900px) {
     .vtabs { flex-direction: row; gap: 6px; margin-top: 20px; padding: 0 0 4px; border-left: 0; overflow-x: auto; scrollbar-width: none; }
@@ -1245,15 +1281,15 @@ main {
     padding: 2px 8px;
     border: 0;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--brand) 12%, transparent);
-    color: var(--brand);
+    background: color-mix(in srgb, var(--mark) 14%, transparent);
+    color: var(--mark);
     font-size: 0.75rem;
     font-weight: 700;
     line-height: 1.4;
     text-align: center;
 }
 .tech-count { margin-left: auto; }
-.tech-btn:hover .tech-count { background: var(--brand); color: var(--bg); }
+.tech-btn:hover .tech-count { background: var(--mark); color: var(--on-mark); }
 .svc-overlay {
     position: fixed;
     inset: 0;
@@ -1477,7 +1513,7 @@ button.gx-hit:focus-visible { outline: 2px solid var(--brand); outline-offset: 2
 /* contador dos cartoes como selo no canto: o nome nunca e hifenizado nem espremido pelo numero */
 .tech:has(.tech-btn) { position: relative; overflow: visible; }
 .tech-btn > span:not(.tech-glyph):not(.tech-count) { hyphens: manual; }
-.tech-btn .tech-count { position: absolute; top: -9px; right: -9px; min-width: 26px; margin: 0; padding: 2px 7px; border: 2px solid var(--bg); background: var(--brand); color: var(--bg); box-shadow: 0 4px 10px -4px rgba(11, 22, 48, 0.4); }
+.tech-btn .tech-count { position: absolute; top: -9px; right: -9px; min-width: 26px; margin: 0; padding: 2px 7px; border: 2px solid var(--bg); background: var(--mark); color: var(--on-mark); box-shadow: 0 4px 10px -4px rgba(11, 22, 48, 0.4); }
 .tech-btn:hover .tech-count { background: var(--ink); color: var(--bg); }
 
 /* premiacoes no modal: cada reconhecimento ganha um icone proprio num selo de destaque */
