@@ -1184,10 +1184,10 @@ main {
 .tab-panel[data-active="false"] { display: none; }
 /* troca de aba: o conteudo novo entra com um fade curto (cartoes de projetos e publicacoes entram em sequencia leve) */
 @keyframes panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.tab-panel[data-active="true"] { animation: panel-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.tab-panel[data-active="true"] { animation: panel-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
 @keyframes panel-in-b { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 /* o conteudo reaproveita os mesmos elementos: data-flip alterna o nome da animacao para ela recomecar a cada troca de aba */
-.project-grid > *, .pubs > * { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1); animation-fill-mode: both; animation-name: panel-in; }
+.project-grid > *, .pubs > * { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1); animation-fill-mode: backwards; animation-name: panel-in; }
 .project-grid[data-flip="1"] > *, .pubs[data-flip="1"] > * { animation-name: panel-in-b; }
 .project-grid > :nth-child(2), .pubs > :nth-child(2) { animation-delay: 0.04s; }
 .project-grid > :nth-child(3), .pubs > :nth-child(3) { animation-delay: 0.08s; }
