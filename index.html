@@ -46,6 +46,13 @@
         ]
     }
     </script>
+    <script>
+        // Pinta o fundo do tema salvo antes de o site montar, para não piscar branco ao recarregar no tema escuro.
+        try {
+            var saved = JSON.parse(localStorage.getItem('wps-preferences') || '{}');
+            document.documentElement.style.background = saved.dark === true ? '#0A1226' : '#F4F6FA';
+        } catch (error) { document.documentElement.style.background = '#F4F6FA'; }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">

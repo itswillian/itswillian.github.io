@@ -255,6 +255,25 @@ const CV_FILES = {
 
 // Idioma inicial; o visitante troca pelo seletor PT/EN. O tema inicial é o claro.
 const DEFAULT_LANGUAGE = 'portuguese';
+// Preferências do visitante (tema e idioma). Só são gravadas quando ele muda algo; sem nada salvo valem os padrões (claro, português).
+// O armazenamento pode estar bloqueado ou com dado inválido (aba anônima, cookies desligados): nesse caso o site segue com os padrões.
+const PREFS_KEY = 'wps-preferences';
+const readPrefs = () => {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(PREFS_KEY) || '{}');
+    return {
+      dark: typeof saved.dark === 'boolean' ? saved.dark : null,
+      language: saved.language === 'portuguese' || saved.language === 'english' ? saved.language : null,
+    };
+  } catch (error) {
+    return { dark: null, language: null };
+  }
+};
+const savePref = (key, value) => {
+  try {
+    window.localStorage.setItem(PREFS_KEY, JSON.stringify({ ...readPrefs(), [key]: value }));
+  } catch (error) { /* sem armazenamento: a preferência vale só nesta visita */ }
+};
 
 const EXTRA = {
   portuguese: {
@@ -1817,7 +1836,8 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.appId = 'a' + Math.random().toString(36).slice(2, 8);
-    this.state = { progTab: 'ia', eduModal: '', jobModal: '', projTab: 'front', eduTab: 'edu', pubYear: '', svcOpen: '', active: 'profile', open: {}, cvOpen: false, cvLang: null, badgeIndex: 0, badgeFade: false, language: null, dark: null, day: new Date().toDateString() };
+    const prefs = readPrefs();
+    this.state = { progTab: 'ia', eduModal: '', jobModal: '', projTab: 'front', eduTab: 'edu', pubYear: '', svcOpen: '', active: 'profile', open: {}, cvOpen: false, cvLang: null, badgeIndex: 0, badgeFade: false, language: prefs.language, dark: prefs.dark, day: new Date().toDateString() };
   }
 
   // Primeira secao cuja base passa da metade da janela (mesma regra do site original).
@@ -2476,8 +2496,8 @@ class Component extends DCLogic {
         tech: project.tech.map((key) => ({ name: techName(key), src: img(key), cls: flipClass(key) })),
       })),
       onScroll: () => this.syncActive(),
-      toggleTheme: () => this.setState({ dark: !dark }),
-      toggleLanguage: () => this.setState({ language: language === 'portuguese' ? 'english' : 'portuguese', open: {} }),
+      toggleTheme: () => { savePref('dark', !dark); this.setState({ dark: !dark }); },
+      toggleLanguage: () => { const next = language === 'portuguese' ? 'english' : 'portuguese'; savePref('language', next); this.setState({ language: next, open: {} }); },
     };
   }
 }
