@@ -1440,7 +1440,10 @@ button.gx-hit:focus-visible { outline: 2px solid var(--brand); outline-offset: 2
     .gx-hit { grid-template-columns: minmax(0, 1fr); gap: 6px; min-height: 0; padding: 10px 0; }
     .gx-label { padding-right: 0; }
     .gx-go { opacity: 1; transform: none; }
-    .gx-lane { background-image: linear-gradient(to right, var(--line) 1px, transparent 1px), linear-gradient(var(--accent), var(--accent)); background-size: var(--gx-grid) 100%, 2px 100%; background-repeat: repeat, no-repeat; background-position: 0 0, calc(var(--p, 0.92) * 100%) 0; }
+    /* "Hoje" fica por cima das barras (como no desktop), e nao no fundo da faixa, onde elas o cobriam */
+    .gx-lane::after { content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--p, 0.92) * 100%); z-index: 2; width: 2px; margin-left: -1px; background: var(--accent); pointer-events: none; }
+    /* Sem largura minima: um cargo curto nao invade o degrau seguinte */
+    .gx-seg.step { min-width: 0; }
 }
 
 /* ---------- revisao final ---------- */
